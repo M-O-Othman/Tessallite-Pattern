@@ -57,6 +57,13 @@ points where LLM-assisted work most often becomes unverifiable.
 5. Run the documentation index guard when you adopt the tiered docs structure:
    `bash scripts/check-docs-index.sh`
 
+Short path:
+
+- New project:
+  [`bootstrap-greenfield-project-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-greenfield-project-prompt.md)
+- Existing codebase:
+  [`bootstrap-existing-codebase-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-existing-codebase-prompt.md)
+
 ## Core Idea
 
 The Tessallite Pattern says that the bottleneck in LLM coding is verification,

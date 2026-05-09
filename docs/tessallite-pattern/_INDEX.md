@@ -58,6 +58,8 @@ a deliberate replacement.
 
 | File | Purpose |
 | --- | --- |
+| [prompts/bootstrap-greenfield-project-prompt.md](prompts/bootstrap-greenfield-project-prompt.md) | Quick-start prompt for applying the Tessallite Pattern to a new empty or greenfield workspace. |
+| [prompts/bootstrap-existing-codebase-prompt.md](prompts/bootstrap-existing-codebase-prompt.md) | Quick-start prompt for retrofitting the Tessallite Pattern into an existing software codebase. |
 | [prompts/open-questions-prompts.md](prompts/open-questions-prompts.md) | Prompts for first-pass and second-pass uncertainty surfacing. |
 | [prompts/adversarial-auditor-prompt.md](prompts/adversarial-auditor-prompt.md) | Independent review prompt for phase-boundary audits. |
 | [prompts/session-continuity-prompts.md](prompts/session-continuity-prompts.md) | Prompts for session start, session close, and handout review. |

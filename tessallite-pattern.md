@@ -1,4 +1,4 @@
-The Tessallite Pattern: What Actually Works in the Mess of LLM Coding Frameworks We Have Today
+# The Tessallite Pattern: What Actually Works in the Mess of LLM Coding Frameworks We Have Today
 
 I have spent two years trying to build a real product with LLMs. Not a demo. Not a weekend prototype. A working data intelligence platform that sits between large-scale data sources and end-user tools such as Excel, BI platforms, and AI conversational agents. Tessallite spans hundreds of features including automated data discovery, semantic modelling, query acceleration, automated aggregation and caching, applied governance, business glossaries, persona-based access control, hierarchy management, and dialect translation across BigQuery, Databricks, and Spark. The solution operates across SQL, DAX, MDX, XMLA, JDBC SQL, Excel integration, and conversational AI. Two thousand source files. Five hundred files of documentation. The product is at tessallite.io. The repo is at github.com/M-O-Othman/tessallite (public).
 
@@ -8,61 +8,61 @@ None of them got me past a certain complexity ceiling. Each one broke at a diffe
 
 This is going to be long. If you only want the punchline: the bottleneck in LLM coding is verification, not generation, and every framework I tried was solving the wrong half of the problem.
 
-Part one: a tour of the frameworks
+## Part One: A Tour of the Frameworks
 
 The frameworks competing for your attention sort into five clusters. Each cluster solves something real. Each cluster has a structural failure mode that shows up at scale.
 
-Cluster one: spec-driven development
+### Cluster One: Spec-Driven Development
 
 GitHub Spec Kit, AWS Kiro, OpenSpec, BMAD Method.
 
 These are the most serious frameworks in the category. Spec Kit treats specifications as the primary artefact and generates implementation through commands like /specify, /plan, and /tasks (github.github.com/spec-kit). Kiro structures features into a three-phase flow of requirements, design, and implementation tasks, with steering files that preserve workspace knowledge across sessions (kiro.dev/docs/specs/feature-specs). OpenSpec pushes humans and AI to agree on proposals, specs, design, and tasks before code is written (openspec.pro). BMAD goes further with role-based planning agents (Analyst, Product Manager, Architect, Scrum Master, Developer, QA) that produce PRDs and stories before any code is written, and treats documentation as the primary source of truth with code as a derivative artefact (docs.bmad-method.org).
 
-What they get right. Upfront ambiguity is the first failure mode of LLM coding. These frameworks force you to handle it before generation begins. That alone moves you out of the bottom quartile of LLM coding outcomes. Spec Kit at 71,000 GitHub stars is not popular by accident. It works for greenfield projects up to a meaningful complexity threshold.
+**What they get right.** Upfront ambiguity is the first failure mode of LLM coding. These frameworks force you to handle it before generation begins. That alone moves you out of the bottom quartile of LLM coding outcomes. Spec Kit at 71,000 GitHub stars is not popular by accident. It works for greenfield projects up to a meaningful complexity threshold.
 
-Where they break. Ambiguity does not all live at the top of the project. New ambiguity appears the moment you write down a database schema, a JSON contract, or a validation rule. None of these frameworks have a forced surfacing mechanism for what the model does not know at the next level of detail. You ship a clean spec, the model starts implementing, and by phase three the code has drifted from the spec because the spec did not survive contact with the schemas. Spec Kit's /speckit.analyze checks spec consistency. Kiro has approval gates between phases. None of them runs an adversarial implementation audit that asks "is the code I just wrote consistent with the spec, or did I quietly invent a different interpretation while implementing?" The drift problem is invisible to them.
+**Where they break.** Ambiguity does not all live at the top of the project. New ambiguity appears the moment you write down a database schema, a JSON contract, or a validation rule. None of these frameworks have a forced surfacing mechanism for what the model does not know at the next level of detail. You ship a clean spec, the model starts implementing, and by phase three the code has drifted from the spec because the spec did not survive contact with the schemas. Spec Kit's `/speckit.analyze` checks spec consistency. Kiro has approval gates between phases. None of them runs an adversarial implementation audit that asks "is the code I just wrote consistent with the spec, or did I quietly invent a different interpretation while implementing?" The drift problem is invisible to them.
 
 BMAD has a sharper version of the same problem. Its strength is the upfront planning intensity. Its weakness is that twelve role-playing agents producing PRDs and architecture documents will not catch their own collective blind spots, because they are all instances of the same underlying model. The role labels make the planning legible. They do not make it correct.
 
 This is the part of the LLM coding genre I have the strongest opinion on. You have seen the ads. The TikTok and LinkedIn promo videos with the dopamine cuts and the swelling music. "Watch as a thousand specialised AI agents review your code in parallel." The architect agent hands the diff to the security agent who hands it to the QA agent who hands it to the senior architect agent who blesses the merge. It looks impressive. It is theatre. The agents are not specialists. They are the same model, called multiple times, with different system prompts. The pattern produces output that looks reviewed without being reviewed, which is worse than not reviewing at all because it manufactures false confidence. Every framework in this cluster, and most frameworks in cluster two, lean on this fallacy. Engineers should call it what it is.
 
-Cluster two: multi-agent orchestration
+### Cluster Two: Multi-Agent Orchestration
 
 CrewAI, AutoGen (AG2), LangGraph, Claude Flow.
 
 These frameworks coordinate multiple agents working concurrently. CrewAI manages role-based teams of agents that mimic human department structures and distinguishes between structured flows and autonomous crews (docs.crewai.com). AutoGen enables collaborative conversational workflows between agents. LangGraph builds durable, stateful agent workflows with persistence and human-in-the-loop checkpoints (docs.langchain.com/oss/javascript/langgraph). Claude Flow extends this into enterprise-scale swarms.
 
-What they get right. Stateful workflows with persistence are genuinely useful. LangGraph in particular is solid infrastructure when you need long-running agent processes that survive interruption. CrewAI's flow concept is reasonable for sequential agent pipelines.
+**What they get right.** Stateful workflows with persistence are genuinely useful. LangGraph in particular is solid infrastructure when you need long-running agent processes that survive interruption. CrewAI's flow concept is reasonable for sequential agent pipelines.
 
-Where they break. Parallelism in software development is dangerous unless ownership is unambiguous. When five agents work concurrently on overlapping artefacts, they produce coordination tax that exceeds the parallelism speedup. They contradict each other. They edit the same files. They produce specs that disagree at the boundaries. You end up needing a human to reconcile the swarm output, which means you have replaced "write the code" with "referee the agents," and the referee job is harder than the original. Orchestration is not architecture. A graph can coordinate steps. It cannot decide which business rule is authoritative.
+**Where they break.** Parallelism in software development is dangerous unless ownership is unambiguous. When five agents work concurrently on overlapping artefacts, they produce coordination tax that exceeds the parallelism speedup. They contradict each other. They edit the same files. They produce specs that disagree at the boundaries. You end up needing a human to reconcile the swarm output, which means you have replaced "write the code" with "referee the agents," and the referee job is harder than the original. Orchestration is not architecture. A graph can coordinate steps. It cannot decide which business rule is authoritative.
 
 Worse, these frameworks inherit the hat-trick fallacy. An "architect agent" is not an architect. It is an LLM with the word "architect" in its system prompt. Same model, same training data, same blind spots. The role labels make the swarm legible. They do not produce architectural judgment.
 
-Cluster three: role-based and context layering
+### Cluster Three: Role-Based and Context Layering
 
 GSD, Hermes, AgentOS, AB Method.
 
 GSD is execution-focused with role-based prompts. Hermes structures reasoning across labour-divided agents. AgentOS provides Standard, Product, and Specs layers to give agents contextual awareness. AB Method focuses on missions executed by specialised subagents.
 
-What they get right. Layered context is a real technique. Separating standing project rules from per-feature context from session-level state matches how humans work in complex codebases, and it matches what RAG systems do well.
+**What they get right.** Layered context is a real technique. Separating standing project rules from per-feature context from session-level state matches how humans work in complex codebases, and it matches what RAG systems do well.
 
-Where they break. The layering is necessary but not sufficient. These frameworks lean heavily on the assumption that a well-prompted agent in a well-layered context will produce well-aligned output. That assumption is wrong at scale. The model still hallucinates cross-references between modules. The model still invents fields that do not exist. The model still claims a phase is complete when half of it is unwired. Context engineering reduces these failures. It does not eliminate them, and the frameworks that rely on context as the primary control mechanism have nothing left when context engineering is not enough.
+**Where they break.** The layering is necessary but not sufficient. These frameworks lean heavily on the assumption that a well-prompted agent in a well-layered context will produce well-aligned output. That assumption is wrong at scale. The model still hallucinates cross-references between modules. The model still invents fields that do not exist. The model still claims a phase is complete when half of it is unwired. Context engineering reduces these failures. It does not eliminate them, and the frameworks that rely on context as the primary control mechanism have nothing left when context engineering is not enough.
 
-Cluster four: tooling and infrastructure
+### Cluster Four: Tooling and Infrastructure
 
 Claude Task Master, Better Agents, Ralph Loop, SprintCore.
 
 These are not methodologies. They are infrastructure. Task Master manages task state across sessions. Better Agents establishes production-grade standards for agent behaviour. Ralph Loop maintains context across long sessions. SprintCore manages full-cycle sprint artefacts.
 
-What they get right. Useful primitives. Task state management is a real problem. Context preservation across sessions is a real problem.
+**What they get right.** Useful primitives. Task state management is a real problem. Context preservation across sessions is a real problem.
 
-Where they break. Treating these as substitutes for a delivery methodology is a category error. They are tools you use inside a methodology. They do not constitute one. A team using Task Master without a delivery pattern around it is using a fancy ticket tracker.
+**Where they break.** Treating these as substitutes for a delivery methodology is a category error. They are tools you use inside a methodology. They do not constitute one. A team using Task Master without a delivery pattern around it is using a fancy ticket tracker.
 
-Cluster five: vibe coding
+### Cluster Five: Vibe Coding
 
 The absence of methodology. Karpathy's original framing was honest about that. A randomized controlled trial in 2025 found experienced open-source developers using AI tools this way took 19 percent longer than coding manually, the opposite of what they expected. It works for scripts. It does not work for systems. Anthropic's own Claude Code best-practices guidance (code.claude.com/docs/en/best-practices) emphasises managing context aggressively, using clean sessions, providing verification methods, and using subagents for investigation rather than uncontrolled implementation. That is a tacit admission that even with the most capable coding model, vibe coding does not survive complexity.
 
-The shared blind spot
+### The Shared Blind Spot
 
 Look across all five clusters and the same hole opens up. Every framework optimises generation. Spec Kit optimises spec generation. CrewAI optimises agent generation. AgentOS optimises context-aware generation. BMAD optimises role-played planning generation. None of them gates verification at the granularity where verification has to happen.
 
@@ -70,13 +70,13 @@ Generation is cheap. The model will produce a thousand lines while you make tea.
 
 That is why none of them shipped Tessallite for me, and why nothing publicly verifiable comparable in scale has shipped from teams using them either.
 
-Part two: what I had to add
+## Part Two: What I Had to Add
 
 I am not claiming I invented a new paradigm. I want to be clear about this. Spec-first development exists. Question-led clarification exists. Human-in-the-loop approval exists. Phase-based delivery exists. LLM review exists. Tiered documentation exists. Test gates exist. CI enforcement exists. I tried all of them. I read the docs. I ran the experiments. I broke things and watched them stay broken until I changed something specific.
 
 The pattern that finally worked is a configuration of these existing ideas, with four structural elements I did not find combined in any single framework. All four are about verification, because verification is where every other framework fails.
 
-Structural element one: a two-level open-questions gate.
+### Structural Element One: A Two-Level Open-Questions Gate
 
 Every spec-driven framework does requirements clarification once, upfront. The Tessallite Pattern does it twice. First pass after high-level requirements, before any detailed spec. Second pass after the detailed spec is drafted, because writing down schemas, API contracts, validation rules, and dialect translations exposes a new layer of ambiguity that the high-level pass cannot see.
 
@@ -86,9 +86,9 @@ In the Tessallite repo, both passes live in `docs/questions/` as numbered files,
 
 I did not arrive at this from theory. I added the second pass after watching specs that survived the first pass produce code that contradicted itself by phase three. The contradiction always traced back to an assumption the model made when writing the schemas, which the spec writing pass had not been gated to surface.
 
-Structural element two: mandatory adversarial review at every phase boundary.
+### Structural Element Two: Mandatory Adversarial Review at Every Phase Boundary
 
-Not a code review by the writing agent. Not a generic linter. A second LLM, fresh context, with an explicit "you are not the author of this code" prompt. Its job is to find what is broken, fragile, dead, overcomplicated, or missing. It is told to cross-reference findings against existing known-issues files to avoid duplicate findings. It produces a report with file paths, line numbers, severity, and recommended fixes.
+Not a code review by the writing agent. Not a generic linter. An independent reviewer, typically a fresh-context LLM or a human who did not author the code, with an explicit "you are not the author of this code" prompt. Its job is to find what is broken, fragile, dead, overcomplicated, or missing. It is told to cross-reference findings against existing known-issues files to avoid duplicate findings. It produces a report with file paths, line numbers, severity, and recommended fixes.
 
 Then the architect reviews the auditor's report alongside the diff and the test coverage. Then the architect runs the tests. Then the phase closes.
 
@@ -96,7 +96,7 @@ Findings are logged to `docs/execution/execution_issue-registry.md` as numbered 
 
 Spec Kit, Kiro, OpenSpec, and BMAD all have spec-level review. None of them runs an adversarial implementation audit at every phase boundary, with the auditor explicitly told it is not the author. The Tessallite Pattern does, because every time I skipped it, something broke later.
 
-Structural element three: session continuity infrastructure.
+### Structural Element Three: Session Continuity Infrastructure
 
 The first two elements gate verification within a feature. The third element gates continuity across sessions, because the model has no memory of yesterday and the architect cannot reload the full context every morning.
 
@@ -114,7 +114,7 @@ I added this element after losing two days because I could not reconstruct what 
 
 The honest weakness of this element: nothing external enforces it. If the model skips the handout, the next session is degraded silently. The first two structural elements have external gates (the architect answers questions, the auditor runs after every phase). This one relies on routine adherence and architect vigilance. It is the weakest of the three. It is also the cheapest to add and the highest yield per unit of effort, because the alternative is silently losing context every week.
 
-Structural element four: tiered documentation governance with CI enforcement.
+### Structural Element Four: Tiered Documentation Governance with CI Enforcement
 
 The first three elements assume the documentation is trustworthy. This element is what makes that assumption hold. Without it, the documentation becomes a museum within a month. Files contradict each other, folders accumulate stale work, and the model starts retrieving outdated context from artefacts nobody has updated since the feature shipped. The cache decays. The first three elements decay with it.
 
@@ -142,23 +142,23 @@ I added this element after watching the documentation cache degrade twice in pro
 
 These four structural elements, combined with the existing components (spec-first, phased delivery, test gates, format-locked documentation), are what makes the pattern hold at two thousand files. None of them is novel individually. The configuration is.
 
-Part three: the pattern, end to end
+## Part Three: The Pattern, End to End
 
 This section walks the full feature lifecycle and names every document type produced at each stage. The article is intentionally specific about paths and document types. Reproducing the discipline matters more than reproducing the philosophy.
 
-Stage one. High-level requirements conversation.
+### Stage One: High-Level Requirements Conversation
 
 The architect describes the feature in business terms. The model produces a short requirements document covering scope, primary use cases, key actors, external integration points. No code. No detailed implementation. Two to five pages.
 
-Output: a draft requirements document, typically filed under `docs/architecture/` with the status `draft`.
+**Output:** a draft requirements document, typically filed under `docs/architecture/` with the status `draft`.
 
-Stage two. First open-questions pass.
+### Stage Two: First Open-Questions Pass
 
 The model lists every assumption it would otherwise paper over. Ambiguous data flows. Undefined edge cases. Missing constraint definitions. Dialect choices. Validation rules. Error handling strategies. The architect answers each question. The model does not guess. This inverts the LLM's training to fill gaps, and is the single highest-leverage move in the pattern.
 
-Output: an open-questions file in `docs/questions/`, with the status `pending` until answered. Planning is blocked until the file is closed.
+**Output:** an open-questions file in `docs/questions/`, with the status `pending` until answered. Planning is blocked until the file is closed.
 
-Stage three. Design specification.
+### Stage Three: Design Specification
 
 With the questions answered, the model produces a design spec. This is the locked-in design. Architecture, components, data flow, trade-offs, the chosen approach. Once approved, it becomes the contract the implementation plan implements.
 
@@ -166,9 +166,9 @@ For Tessallite features the spec runs thirty to eighty pages. Database schemas w
 
 The architect reviews the spec. A second open-questions pass follows at the new level of detail. Edge cases in cardinality. Conflicts between two existing features. Validation rule ordering. The architect answers. The spec is updated. Only then does the spec freeze.
 
-Output: a design spec under `docs/superpowers/specs/`, status `active`. Often accompanied by an architecture decision document under `docs/architecture/` that captures the chosen approach, the alternatives considered, and the rationale.
+**Output:** a design spec under `docs/architecture/` named `architecture_<feature>-spec.md`, status `active`. Often accompanied by a separate architecture decision record in the same folder that captures the chosen approach, the alternatives considered, and the rationale.
 
-Stage four. Implementation plan.
+### Stage Four: Implementation Plan
 
 The frozen spec converts into a step-by-step task list with exact file paths, code blocks, test commands, and expected outcomes. Bite-sized tasks. Each step is one action that takes two to five minutes to execute. The plan is executed sequentially. Each task is marked complete as it finishes.
 
@@ -176,9 +176,9 @@ For larger features the plan is split into phases with dependency markers. A typ
 
 For a sprint or feature chunk that does not warrant a full spec-and-plan cycle, an action plan is produced instead. Lighter weight, scoped to a bounded piece of work. Read prior action plans before starting.
 
-Output: an implementation plan under `docs/superpowers/plans/`, or an action plan under `docs/execution/`.
+**Output:** an implementation plan under `docs/execution/` named `execution_<feature>-plan.md`, or a lighter action plan in the same folder for sprint chunks.
 
-Stage five. Phase delivery and double review.
+### Stage Five: Phase Delivery and Double Review
 
 The model implements one phase of the plan. The adversarial auditor LLM runs with the "you are not the author" prompt and produces a findings report. The architect reviews the report, the diff, and the tests. Unit tests are written for the phase before the next phase begins. Findings are logged to the issue registry. New feature ideas surfaced during the phase go to a future-features file.
 
@@ -186,15 +186,15 @@ The phase only closes when code, tests, and documentation are aligned. No phase 
 
 Documentation updates are mandatory at this stage. The user guide at `docs/guides/guides_user-guide.md` is refreshed after every implementation job. Help pages under `tessallite/help/` are added or updated when UI features ship or change. Help pages are educational, not just step-by-step instructions: they teach concepts, theory, when-to-use, best practices, pitfalls, and worked examples. Every page must appear in `index.html` and have prev/home/next navigation links. UX changes require refreshed screenshots.
 
-Output: code commits, test files, an updated issue registry at `docs/execution/execution_issue-registry.md`, future-features entries, and refreshed user-facing documentation.
+**Output:** code commits, test files, an updated issue registry at `docs/execution/execution_issue-registry.md`, future-features entries, and refreshed user-facing documentation.
 
-Stage six. Session close.
+### Stage Six: Session Close
 
 Before any session ends, the model produces a handout summarising what was attempted, what completed, what deferred. The model verifies the review checklist, confirming no planned action was silently skipped. The architect commits with a structured message. The model appends a dated entry to the persistent journal in the captain's log voice. The next session starts by reading the previous handout and the latest journal entries before any new work begins.
 
-Output: a session handout at `work/sessions/<date>.md` and a new entry in `docs/execution/execution_release-history.md`.
+**Output:** a session handout at `work/sessions/<date>.md` and a new entry in `docs/execution/execution_release-history.md`.
 
-The full feature workflow
+### The Full Feature Workflow
 
 Open questions to design spec to implementation plan to execution to release history. Five canonical document stages, each with its own folder, each with its own gating rules.
 
@@ -204,23 +204,37 @@ Continuous artefacts run alongside the stages. The issue registry is updated whe
 
 Then the loop continues. Next phase. Same gates.
 
-Part four: where the Tessallite Pattern is superior, framework by framework
+## Part Four: Where the Tessallite Pattern Is Superior, Framework by Framework
 
-Versus Spec Kit and OpenSpec. Same upfront discipline. Plus a second open-questions pass after the detailed spec, which Spec Kit and OpenSpec do not have. Plus per-phase adversarial audit, which neither has. Plus session continuity infrastructure, which neither addresses. Plus a tiered documentation router with CI enforcement, which neither provides. Result: drift between spec and code is caught at phase boundaries, context survives across sessions, and the documentation cache cannot decay silently.
+### Versus Spec Kit and OpenSpec
 
-Versus Kiro. Same three-phase structure (requirements, design, tasks). Plus the four structural elements above. Kiro's steering files preserve workspace knowledge but do not capture session arcs and have no enforcement of index consistency. Result: feature-level coherence at scale, plus an audit trail of how the project evolved, plus a documentation system that fails the build when filing breaks.
+Same upfront discipline. Plus a second open-questions pass after the detailed spec, which Spec Kit and OpenSpec do not have. Plus per-phase adversarial audit, which neither has. Plus session continuity infrastructure, which neither addresses. Plus a tiered documentation router with CI enforcement, which neither provides. Result: drift between spec and code is caught at phase boundaries, context survives across sessions, and the documentation cache cannot decay silently.
 
-Versus BMAD. BMAD's docs-as-source-of-truth philosophy is right. The role-based planning team is theatre. The Tessallite Pattern keeps the documentation discipline, drops the role play, adds the adversarial implementation audit that BMAD's QA agent cannot provide because it is the same model that wrote the code, adds the persistent journal, and adds the L0/L1/L2 router with CI enforcement. BMAD treats documentation as authoritative but does not enforce that the index reflects reality.
+### Versus Kiro
 
-Versus CrewAI, AutoGen, Claude Flow. The Tessallite Pattern uses sequential agents with clear ownership, not concurrent swarms. The only multi-agent move is the adversarial reviewer, which runs after implementation, not during. Result: no artefact conflicts, no coordination tax, no referee work.
+Same three-phase structure (requirements, design, tasks). Plus the four structural elements above. Kiro's steering files preserve workspace knowledge but do not capture session arcs and have no enforcement of index consistency. Result: feature-level coherence at scale, plus an audit trail of how the project evolved, plus a documentation system that fails the build when filing breaks.
 
-Versus AgentOS, AB Method. Comparable context layering. Plus the verification gates. Plus session continuity. Plus CI-enforced documentation governance. Context layering alone is not enough.
+### Versus BMAD
 
-Versus LangGraph, Task Master, Ralph Loop. These are tools the Tessallite Pattern can use internally. LangGraph for durable execution. Task Master for task state. Ralph Loop for context preservation. They are infrastructure, not competitors. None of them substitutes for the journal or the tiered router, because none of them captures reasoning and surprise alongside state, and none of them enforces filing discipline.
+BMAD's docs-as-source-of-truth philosophy is right. The role-based planning team is theatre. The Tessallite Pattern keeps the documentation discipline, drops the role play, adds the adversarial implementation audit that BMAD's QA agent cannot provide because it is the same model that wrote the code, adds the persistent journal, and adds the L0/L1/L2 router with CI enforcement. BMAD treats documentation as authoritative but does not enforce that the index reflects reality.
 
-Versus vibe coding. No comparison. Vibe coding fails at the second feature. The Tessallite Pattern shipped two thousand files.
+### Versus CrewAI, AutoGen, and Claude Flow
 
-Part five: the honest weaknesses
+The Tessallite Pattern uses sequential agents with clear ownership, not concurrent swarms. The only multi-agent move is the adversarial reviewer, which runs after implementation, not during. Result: no artefact conflicts, no coordination tax, no referee work.
+
+### Versus AgentOS and AB Method
+
+Comparable context layering. Plus the verification gates. Plus session continuity. Plus CI-enforced documentation governance. Context layering alone is not enough.
+
+### Versus LangGraph, Task Master, and Ralph Loop
+
+These are tools the Tessallite Pattern can use internally. LangGraph for durable execution. Task Master for task state. Ralph Loop for context preservation. They are infrastructure, not competitors. None of them substitutes for the journal or the tiered router, because none of them captures reasoning and surprise alongside state, and none of them enforces filing discipline.
+
+### Versus Vibe Coding
+
+No comparison. Vibe coding fails at the second feature. The Tessallite Pattern shipped two thousand files.
+
+## Part Five: The Honest Weaknesses
 
 The Tessallite Pattern requires a strong solution architect. Someone who can answer open-questions documents quickly and decisively. Someone who can review phase output rigorously enough to catch unwired code, drift, and field-name mismatches. If your architect is slow or imprecise, the pattern stalls. The frameworks I criticised do not name this dependency. I am naming it.
 
@@ -228,13 +242,15 @@ The pattern is heavier than vibe coding. Two open-questions passes, double revie
 
 The fourth element has its own startup cost. Setting up the tiered router, writing the L1 indexes for existing folders, and adding the CI guard takes a day or two on a project that did not start with the pattern. Worth it on anything past a few hundred files. Likely not worth it on a single-feature prototype.
 
+The fourth element also assumes documentation will be read back by future LLM sessions. That is the implicit precondition. If your documentation exists purely for human readers and the LLM never retrieves it during work, the cache framing collapses into "have good docs," which any methodology recommends. The Tessallite Pattern's claim about the fourth element is specifically that the LLM treats the docs as a working cache, retrieves from it, and produces wrong code when the cache is stale. If that retrieval loop is not part of your workflow, the CI guard and tiered router still help, but they are no longer load-bearing in the same way.
+
 I have shipped Tessallite using this pattern. I have not run a controlled comparison against Spec Kit or BMAD on the same project. The pattern works for me, on the kinds of systems I build, with me as the architect. Whether it generalises to teams with weaker architects, or to domains with less precedent than BI tooling, is open. I think the structural elements (two-level open questions, per-phase adversarial review, session continuity infrastructure, tiered documentation governance) are robust. The exact configuration around them is tunable.
 
-Part six: what I want you to take from this
+## Part Six: What I Want You to Take From This
 
 If you are building a real product with LLMs, stop optimising generation and start gating verification. The frameworks promising to do the work for you are mostly selling better generation, which is not your problem. Your problem is that the model does not know when it is wrong, and the cost of the model being wrong compounds with every phase.
 
-The four moves that consistently catch the wrongness are forced uncertainty surfacing at two levels of detail, adversarial review by an independent model at every phase boundary, session continuity infrastructure that captures the arc across sessions, and tiered documentation governance with CI enforcement that keeps the cache trustworthy. Everything else (the role labels, the swarm orchestration, the slash commands, the layered agent contexts) is decoration. Useful sometimes. Not load-bearing.
+The four moves that consistently catch the wrongness are forced uncertainty surfacing at two levels of detail, adversarial review by an independent reviewer at every phase boundary, session continuity infrastructure that captures the arc across sessions, and tiered documentation governance with CI enforcement that keeps the cache trustworthy. Everything else (the role labels, the swarm orchestration, the slash commands, the layered agent contexts) is decoration. Useful sometimes. Not load-bearing.
 
 Name your gates. Run your gates. Trust your model less than the documentation suggests. Make the build fail when the documentation lies.
 
