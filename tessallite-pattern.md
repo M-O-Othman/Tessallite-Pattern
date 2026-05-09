@@ -108,7 +108,7 @@ Session handouts live in `work/sessions/` and follow a fixed structure: Project,
 
 The second component is a persistent journal. Append-only. One dated entry per significant work session. The entry covers what was attempted, what was completed, what was deferred, what broke, what surprised the architect. The journal is the only artefact in the pattern that captures the arc across sessions, as opposed to the state of a single session.
 
-The journal lives at `docs/execution/execution_release-history.md`. Each entry has a date heading, commit hashes, and one to three paragraphs of prose. Entries are written in the tone of a 17th-century English ship captain's logbook. Measured, factual, understated. The voice is a deliberate technical choice, not a flourish. Format-locked dry technical journals get skimmed and forgotten. A constrained voice forces compression because the format will not tolerate filler, and makes entries memorable enough that you read them back. The captain's log voice in particular makes you write "encountered fog at the dialect translator, becalmed for two hours, course corrected by reverting commit 3f4a" instead of "had some issues with the dialect translator, eventually fixed it." The first entry is useful three weeks later. The second is forgotten by the next morning. Pick whatever voice you like. War correspondent. Field naturalist. Trial-court stenographer. The voice does not matter. The compression and memorability function does.
+The journal lives at `work/logs/project-journal.md`. Each entry has a date heading, commit hashes, and one to three paragraphs of prose. Entries are written in the tone of a 17th-century English ship captain's logbook. Measured, factual, understated. The voice is a deliberate technical choice, not a flourish. Format-locked dry technical journals get skimmed and forgotten. A constrained voice forces compression because the format will not tolerate filler, and makes entries memorable enough that you read them back. The captain's log voice in particular makes you write "encountered fog at the dialect translator, becalmed for two hours, course corrected by reverting commit 3f4a" instead of "had some issues with the dialect translator, eventually fixed it." The first entry is useful three weeks later. The second is forgotten by the next morning. Pick whatever voice you like. War correspondent. Field naturalist. Trial-court stenographer. The voice does not matter. The compression and memorability function does.
 
 I added this element after losing two days because I could not reconstruct what we had decided in a session three weeks earlier. The conversation export was useless. The handouts had been generated but were terse. The commit messages were accurate but stripped of reasoning. The journal closes that gap.
 
@@ -192,11 +192,11 @@ Documentation updates are mandatory at this stage. The user guide at `docs/guide
 
 Before any session ends, the model produces a handout summarising what was attempted, what completed, what deferred. The model verifies the review checklist, confirming no planned action was silently skipped. The architect commits with a structured message. The model appends a dated entry to the persistent journal in the captain's log voice. The next session starts by reading the previous handout and the latest journal entries before any new work begins.
 
-**Output:** a session handout at `work/sessions/<date>.md` and a new entry in `docs/execution/execution_release-history.md`.
+**Output:** a session handout at `work/sessions/<date>.md` and a new entry in `work/logs/project-journal.md`.
 
 ### The Full Feature Workflow
 
-Open questions to design spec to implementation plan to execution to release history. Five canonical document stages, each with its own folder, each with its own gating rules.
+Open questions to design spec to implementation plan to execution to project journal. Five canonical document stages, each with its own folder, each with its own gating rules.
 
 Not every piece of work requires all five stages. A small bug fix skips questions, spec, and plan. It goes straight to execution and a journal entry. A large new subsystem uses all five and accumulates dozens of files across the tiered structure.
 

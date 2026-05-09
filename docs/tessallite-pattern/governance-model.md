@@ -29,7 +29,7 @@ and produce plausible errors.
 | Issue registry | Delivery owner | Tracks unresolved problems to closure. |
 | Documentation indexes | Documentation steward | Keeps docs discoverable and statuses accurate. |
 | Session handout | Current session owner | Preserves working state. |
-| Release history | Architect or lead | Captures durable reasoning and course changes. |
+| Project journal | Architect or lead | Captures durable reasoning and course changes in `work/logs/project-journal.md`. |
 
 ## Gate Policy
 
@@ -97,7 +97,7 @@ Evidence:
 - session handout exists or is updated
 - next steps are specific
 - blockers are explicit
-- release history is appended if the session was significant
+- `work/logs/project-journal.md` is appended if the session was significant
 
 ## Artefact Status Rules
 
@@ -248,14 +248,14 @@ For active projects:
 - review open questions weekly
 - review issue registry weekly
 - review docs index failures on every PR
-- review release history at sprint or milestone boundaries
+- review `work/logs/project-journal.md` at sprint or milestone boundaries
 - archive superseded artefacts monthly
 
 For solo projects:
 
 - review pending questions before each major session
 - run docs index check before commits
-- append release history after meaningful changes
+- append `work/logs/project-journal.md` after meaningful changes
 
 ## Governance Health Questions
 
@@ -266,5 +266,5 @@ Ask these regularly:
 - Do pending questions block implementation?
 - Are review findings tracked to closure?
 - Are indexes useful, or just decorative?
-- Does the release history explain why the project changed course?
+- Does `work/logs/project-journal.md` explain why the project changed course?
 - Can the architect defend the latest spec against the latest code?

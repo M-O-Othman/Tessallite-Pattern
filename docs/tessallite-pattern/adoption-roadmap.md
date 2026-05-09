@@ -101,12 +101,12 @@ Add:
 - session handout
 - session start prompt
 - session close prompt
-- release history entry for significant work
+- project journal entry for significant work
 
 Minimum artefacts:
 
 - `work/sessions/<date>.md`
-- release history entry
+- `work/logs/project-journal.md`
 
 Success criteria:
 
@@ -169,7 +169,7 @@ Deliverable:
 
 - create session handout after each working session
 - start each session by reading the latest handout
-- append release history for significant work
+- append `work/logs/project-journal.md` for significant work
 
 Deliverable:
 
@@ -211,4 +211,3 @@ Track these lightly:
 
 The goal is not process volume. The goal is fewer silent assumptions, fewer
 late surprises, and faster recovery of project state.
-

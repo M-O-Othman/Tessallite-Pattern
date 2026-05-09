@@ -3,8 +3,8 @@
 Status: active
 Last meaningful update: YYYY-MM-DD
 
-Use this template for a dated entry in `docs/execution/execution_release-history.md`
-or an equivalent project journal. The original Tessallite Pattern used a
+Use this template for a dated entry in `work/logs/project-journal.md`.
+The original Tessallite Pattern used a
 measured captain's-log style because it compresses reasoning into memorable
 prose. Keep the voice factual and concise.
 

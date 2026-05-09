@@ -110,7 +110,7 @@ The phase closes only after findings are fixed, accepted, or logged.
 The model has no durable memory. The project creates it.
 
 Each meaningful session ends with a handout. Significant work also updates a
-release history journal so future sessions recover not only what changed, but
+project journal so future sessions recover not only what changed, but
 why the course changed.
 
 ### 4. Tiered Documentation Governance
@@ -196,8 +196,8 @@ For a non-trivial feature:
    [`adversarial auditor prompt`](docs/tessallite-pattern/prompts/adversarial-auditor-prompt.md).
 7. Close the phase with the
    [`phase gate checklist`](docs/tessallite-pattern/checklists/phase-gate-checklist.md).
-8. End the session with a handout and, for significant work, a release history
-   entry.
+8. End the session with a handout and, for significant work, a project journal
+   entry in `work/logs/project-journal.md`.
 
 Before committing documentation changes:
 

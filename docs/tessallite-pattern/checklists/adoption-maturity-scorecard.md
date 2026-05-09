@@ -52,7 +52,7 @@ Subtotal:
 | --- | --- | --- |
 | Sessions end with handouts. |  |  |
 | New sessions read latest handout first. |  |  |
-| Significant work updates release history. |  |  |
+| Significant work updates `work/logs/project-journal.md`. |  |  |
 | Failed attempts and surprises are recorded. |  |  |
 
 Subtotal:
@@ -86,4 +86,3 @@ Top three gaps:
 3. 
 
 Next action:
-

@@ -43,7 +43,7 @@ a deliberate replacement.
 | [templates/adversarial-review-report-template.md](templates/adversarial-review-report-template.md) | Report findings from an independent phase auditor. |
 | [templates/issue-registry-template.md](templates/issue-registry-template.md) | Track bugs, risks, missing wiring, and unresolved findings. |
 | [templates/session-handout-template.md](templates/session-handout-template.md) | Preserve session state for the next working session. |
-| [templates/release-history-entry-template.md](templates/release-history-entry-template.md) | Append durable narrative history after significant work. |
+| [templates/release-history-entry-template.md](templates/release-history-entry-template.md) | Append a durable project journal entry after significant work. |
 | [templates/domain-index-template.md](templates/domain-index-template.md) | Create an L1 documentation index for a domain folder. |
 
 ## Checklists
@@ -58,13 +58,21 @@ a deliberate replacement.
 
 | File | Purpose |
 | --- | --- |
+| [prompts/_INDEX.md](prompts/_INDEX.md) | Orchestration guide mapping prompts to lifecycle stages and gates. |
 | [prompts/agent-memory-instructions.md](prompts/agent-memory-instructions.md) | Shared persistent project-memory rules for agentic coding tools. |
 | [prompts/bootstrap-greenfield-project-prompt.md](prompts/bootstrap-greenfield-project-prompt.md) | Quick-start prompt for applying the Tessallite Pattern to a new empty or greenfield workspace. |
 | [prompts/bootstrap-existing-codebase-prompt.md](prompts/bootstrap-existing-codebase-prompt.md) | Quick-start prompt for retrofitting the Tessallite Pattern into an existing software codebase. |
+| [prompts/requirements-authoring-prompt.md](prompts/requirements-authoring-prompt.md) | Prompt for drafting requirements before the first open-questions gate. |
 | [prompts/open-questions-prompts.md](prompts/open-questions-prompts.md) | Prompts for first-pass and second-pass uncertainty surfacing. |
+| [prompts/design-spec-authoring-prompt.md](prompts/design-spec-authoring-prompt.md) | Prompt for drafting a design spec after first-pass questions are resolved. |
+| [prompts/implementation-plan-authoring-prompt.md](prompts/implementation-plan-authoring-prompt.md) | Prompt for turning an active design spec into a phased implementation plan. |
+| [prompts/phase-implementation-prompt.md](prompts/phase-implementation-prompt.md) | Prompt for implementing one scoped phase without drifting from the plan. |
+| [prompts/phase-closure-prompt.md](prompts/phase-closure-prompt.md) | Prompt for phase closure and planned-action review. |
 | [prompts/adversarial-auditor-prompt.md](prompts/adversarial-auditor-prompt.md) | Independent review prompt for phase-boundary audits. |
+| [prompts/feature-continuation-prompt.md](prompts/feature-continuation-prompt.md) | Prompt for resuming a multi-session feature safely. |
 | [prompts/session-continuity-prompts.md](prompts/session-continuity-prompts.md) | Prompts for session start, session close, and handout review. |
 | [prompts/documentation-router-prompt.md](prompts/documentation-router-prompt.md) | Prompt for using the L0/L1/L2 documentation hierarchy efficiently. |
+| [prompts/architect-guidance.md](prompts/architect-guidance.md) | Guidance for architect answers, deferrals, spec approval, and phase closure approval. |
 
 ## Examples
 

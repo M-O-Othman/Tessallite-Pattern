@@ -24,6 +24,9 @@ Produce an open-questions file with:
 - suggested owner
 - whether the answer blocks design or can be deferred
 
+Use docs/tessallite-pattern/templates/open-questions-template.md as the output
+structure when available.
+
 Focus on:
 - scope
 - actors and permissions
@@ -37,6 +40,15 @@ Focus on:
 
 Do not answer your own questions unless the answer is explicitly stated in the
 requirements. If something is unclear, mark it unclear.
+
+Gate enforcement:
+- If the architect's answer is vague, partial, contradictory, or says "do what
+  makes sense," return a follow-up question naming exactly what is still
+  unclear.
+- Do not mark a blocking question closed until it has a concrete answer or an
+  explicit deferral.
+- A deferral must include owner, reason, scope narrowing, and review date.
+- Do not proceed to design while required first-pass questions remain pending.
 
 Requirements:
 <paste requirements>
@@ -62,6 +74,9 @@ Produce second-pass open questions with:
 - suggested owner
 - whether it blocks planning
 
+Use docs/tessallite-pattern/templates/open-questions-template.md as the output
+structure when available.
+
 Challenge:
 - field names and data types
 - nullability
@@ -76,6 +91,16 @@ Challenge:
 - cross-module ownership
 
 Do not resolve ambiguity yourself. Surface it.
+
+Gate enforcement:
+- If the architect's answer is vague, partial, contradictory, or says "do what
+  makes sense," return a follow-up question naming exactly what is still
+  unclear.
+- Do not mark a blocking design-level question closed until it has a concrete
+  answer or an explicit deferral.
+- A deferral must include owner, reason, scope narrowing, and review date.
+- Do not proceed to implementation planning while required second-pass
+  questions remain pending.
 
 Design spec:
 <paste or reference design spec>
@@ -103,4 +128,3 @@ Q2-014: In the metric cache refresh API, should a duplicate refresh request for
 the same dataset return 409, return the existing job with 200, or enqueue a
 second job? This affects idempotency, UI retry behavior, and cache consistency.
 ```
-

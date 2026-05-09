@@ -158,7 +158,7 @@ diff, runs relevant tests, and logs unresolved findings.
 ### 5.3 Session Continuity Infrastructure
 
 Every meaningful session should end with a handout. Significant sessions should
-also append the release history journal.
+also append the project journal at `work/logs/project-journal.md`.
 
 Session handout captures:
 
@@ -171,7 +171,7 @@ Session handout captures:
 - next steps
 - key files
 
-Release history captures the arc:
+The project journal captures the arc:
 
 - date
 - commit hashes or change identifiers
@@ -226,7 +226,7 @@ documentation cache from silent decay.
 | Review | Adversarial review report | active | Findings fixed, accepted, or logged. |
 | Registry | Issue registry | active | No untracked blocking issue remains. |
 | Continuity | Session handout | closed | Next session can resume from it. |
-| History | Release history entry | active | Significant work has durable narrative. |
+| History | Project journal entry | active | Significant work has durable narrative. |
 
 ## 7. Status Vocabulary
 
@@ -348,7 +348,7 @@ A feature is done when:
 - user-facing and internal docs are updated
 - indexes point to the new or changed docs
 - session handout records current state
-- release history captures the work if it was significant
+- `work/logs/project-journal.md` captures the work if it was significant
 
 ## 13. The Short Version
 

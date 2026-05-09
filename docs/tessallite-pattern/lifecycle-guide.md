@@ -231,13 +231,13 @@ Before ending a meaningful session:
 5. Record blockers.
 6. Record next steps.
 7. Record key files.
-8. Append release history if the session changed direction, delivered a
-   significant feature, or revealed important reasoning.
+8. Append `work/logs/project-journal.md` if the session changed direction,
+   delivered a significant feature, or revealed important reasoning.
 
 Output:
 
 - session handout at `work/sessions/<date>.md`
-- release history entry
+- project journal entry at `work/logs/project-journal.md`
 
 Gate:
 
@@ -290,7 +290,7 @@ Use this for high-risk or multi-module work.
 9. Documentation index updates
 10. User guide or help updates
 11. Session handout
-12. Release history entry
+12. Project journal entry
 
 ## Traceability Matrix
 
