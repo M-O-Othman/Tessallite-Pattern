@@ -5,7 +5,7 @@
 This repository contains a practical framework kit derived from
 [`tessallite-pattern.md`](tessallite-pattern.md).
 
-The original article explains why many LLM coding frameworks fail at scale:
+The original article https://www.linkedin.com/pulse/tessallite-pattern-mohammed-othman-ln1ve/ explains why many LLM coding frameworks fail at scale:
 they optimize generation while under-investing in verification. This kit turns
 that argument into reusable materials, artefacts, templates, prompts,
 checklists, examples, illustrations, and a lightweight documentation governance
