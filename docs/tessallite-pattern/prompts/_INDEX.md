@@ -24,6 +24,12 @@ that follows the lifecycle and gate model.
 | Stage 6 | Close session. | [session-continuity-prompts.md](session-continuity-prompts.md) | [session-handout-template.md](../templates/session-handout-template.md), [release-history-entry-template.md](../templates/release-history-entry-template.md) |
 | Architect decisions | Answer questions and approve gates. | [architect-guidance.md](architect-guidance.md) | Concrete answers, approvals, deferrals |
 
+## Supporting Prompts
+
+| Prompt | Use |
+| --- | --- |
+| [documentation-router-prompt.md](documentation-router-prompt.md) | Navigate the L0/L1/L2 documentation hierarchy before choosing working context. |
+
 ## Gate Rules
 
 - Requirements must exist before first-pass open questions.
@@ -43,4 +49,3 @@ For a quick start, use:
    - [bootstrap-greenfield-project-prompt.md](bootstrap-greenfield-project-prompt.md)
    - [bootstrap-existing-codebase-prompt.md](bootstrap-existing-codebase-prompt.md)
 3. This orchestration guide.
-

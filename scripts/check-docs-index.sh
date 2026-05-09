@@ -27,12 +27,34 @@ for domain_dir in "$DOCS_DIR"/*; do
     file_name="$(basename "$doc_file")"
     [[ "$file_name" == "_INDEX.md" ]] && continue
 
-    if ! grep -Fq "$file_name" "$index_file"; then
-      echo "missing index entry: docs/$domain_name/$file_name is not listed in docs/$domain_name/_INDEX.md" >&2
+    relative_path="${doc_file#"$domain_dir"/}"
+
+    if ! grep -Fq "$relative_path" "$index_file"; then
+      echo "missing index entry: docs/$domain_name/$relative_path is not listed in docs/$domain_name/_INDEX.md" >&2
       failures=$((failures + 1))
     fi
-  done < <(find "$domain_dir" -maxdepth 1 -type f -name "*.md" -print0)
+  done < <(find "$domain_dir" -type f -name "*.md" -print0)
 done
+
+while IFS= read -r -d '' nested_index; do
+  nested_dir="$(dirname "$nested_index")"
+  [[ "$nested_dir" == "$DOCS_DIR" ]] && continue
+  [[ "$(dirname "$nested_dir")" == "$DOCS_DIR" ]] && continue
+
+  display_index="${nested_index#"$ROOT_DIR"/}"
+
+  while IFS= read -r -d '' doc_file; do
+    file_name="$(basename "$doc_file")"
+    [[ "$file_name" == "_INDEX.md" ]] && continue
+
+    display_file="${doc_file#"$ROOT_DIR"/}"
+
+    if ! grep -Fq "$file_name" "$nested_index"; then
+      echo "missing nested index entry: $display_file is not listed in $display_index" >&2
+      failures=$((failures + 1))
+    fi
+  done < <(find "$nested_dir" -maxdepth 1 -type f -name "*.md" -print0)
+done < <(find "$DOCS_DIR" -mindepth 2 -type f -name "_INDEX.md" -print0)
 
 if [[ "$failures" -gt 0 ]]; then
   echo "documentation index check failed with $failures issue(s)" >&2
@@ -40,4 +62,3 @@ if [[ "$failures" -gt 0 ]]; then
 fi
 
 echo "documentation index check passed"
-

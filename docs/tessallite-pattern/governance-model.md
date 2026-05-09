@@ -148,8 +148,9 @@ ground of every file.
 
 ### L1 Index
 
-`docs/<domain>/_INDEX.md` lists active files in that folder and gives a domain
-summary.
+`docs/<domain>/_INDEX.md` lists active files in that domain and gives a domain
+summary. If the domain uses subfolders, list nested files by relative path, such
+as `prompts/phase-implementation-prompt.md`.
 
 Update L1 when:
 
@@ -230,8 +231,9 @@ Minimum CI check:
 bash scripts/check-docs-index.sh
 ```
 
-The check should fail when an active Markdown file in a domain folder is not
-listed in that domain's `_INDEX.md`.
+The check should fail when an active Markdown file in a domain is not listed in
+that domain's `_INDEX.md`. If a nested folder has its own `_INDEX.md`, the check
+also verifies that files in that folder are listed in the nested index.
 
 Recommended additional checks:
 

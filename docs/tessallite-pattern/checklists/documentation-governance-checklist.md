@@ -36,6 +36,7 @@ Use this checklist when creating, editing, moving, or archiving documentation.
 - [ ] `docs/_INDEX.md` lists only domains, not every file.
 - [ ] Every domain has an `_INDEX.md`.
 - [ ] Every active L2 document is listed in its L1 index.
+- [ ] Nested folder indexes list every active Markdown file in that folder.
 - [ ] L1 summaries are short and current.
 - [ ] Running `bash scripts/check-docs-index.sh` succeeds.
 
@@ -45,4 +46,3 @@ Use this checklist when creating, editing, moving, or archiving documentation.
 - [ ] Stale drafts are not mixed with active docs.
 - [ ] Temporary research is not treated as authoritative.
 - [ ] Closed decisions are easy to distinguish from current decisions.
-
