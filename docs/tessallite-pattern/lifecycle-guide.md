@@ -24,6 +24,10 @@ For executable prompts that map to these stages, use
 [prompts/_INDEX.md](prompts/_INDEX.md) as the prompt inventory and
 orchestration guide.
 
+For a concrete first-session setup example, use the
+[greenfield walkthrough](../../walk-through/walkthrough.md) before starting the
+requirements stage.
+
 ## Stage 1: High-Level Requirements
 
 Goal: describe the feature in business terms before implementation detail

@@ -15,6 +15,10 @@ catch the failures you are already experiencing.
 For the full prompt set, use [prompts/_INDEX.md](prompts/_INDEX.md). The roadmap
 names prompt categories, while the prompt index is the canonical inventory.
 
+For a practical first adoption session, use the
+[greenfield walkthrough](../../walk-through/walkthrough.md). It demonstrates the
+minimum project setup before any application code is written.
+
 ## Level 0: Baseline
 
 Use when the project is still experimenting.

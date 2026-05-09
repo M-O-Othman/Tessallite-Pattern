@@ -86,6 +86,8 @@ When working in an existing codebase:
 - Durable docs must include title, Status, Last meaningful update, and a short
   summary where useful.
 - When creating a doc, add it to the relevant L1 index immediately.
+- When creating a doc inside a nested folder that has its own `_INDEX.md`, update
+  both the domain L1 index and the nested index.
 - Run `scripts/check-docs-index.sh` before committing documentation changes.
 
 ### Session Continuity

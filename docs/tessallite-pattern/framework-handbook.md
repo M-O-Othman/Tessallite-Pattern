@@ -9,6 +9,11 @@ framework for AI-assisted software delivery. It is written for architects,
 technical leads, solo builders, and teams using LLMs on systems where mistakes
 compound across many files, contracts, and sessions.
 
+If you are adopting the pattern in a new project, review the
+[greenfield walkthrough](../../walk-through/walkthrough.md) first. It shows the
+macOS Terminal and Codex sequence for bootstrapping project memory, documentation
+indexes, starter docs, and initial product questions before application code.
+
 ## 1. Executive Summary
 
 The Tessallite Pattern is a verification-first delivery method for building
@@ -200,7 +205,8 @@ L1:
 
 - `docs/<domain>/_INDEX.md`
 - summarizes the domain
-- lists every active file in the folder
+- lists every active file in the domain, using relative paths for nested files
+  when the domain delegates to subfolders
 - often enough to answer routing questions without opening L2 files
 
 L2:
@@ -209,7 +215,8 @@ L2:
 - contains the actual content
 - starts with a short summary, status, and last meaningful update
 
-The CI guard checks that L2 files are listed in the L1 index. This turns
+The CI guard checks that L2 files are listed in the domain L1 index and, when a
+nested folder has its own `_INDEX.md`, in that nested index too. This turns
 documentation hygiene from a preference into a contract and protects the
 documentation cache from silent decay.
 

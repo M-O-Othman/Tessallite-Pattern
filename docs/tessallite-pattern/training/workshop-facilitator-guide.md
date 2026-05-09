@@ -5,6 +5,10 @@ Last meaningful update: 2026-05-09
 
 This guide runs a half-day workshop for teaching the Tessallite Pattern.
 
+Use the [greenfield walkthrough](../../../walk-through/walkthrough.md) as a
+short visual demo before the exercises when participants have not seen the
+pattern applied in a terminal session.
+
 Audience:
 
 - architects
@@ -45,6 +49,7 @@ Participants should leave able to:
 ## Materials Needed
 
 - source article or handbook
+- greenfield walkthrough
 - worked feature example
 - open-questions template
 - design-spec template
@@ -84,4 +89,3 @@ Ask each participant to identify one project where:
 
 Then choose one adoption level from the roadmap and define the first artefact
 they will create.
-

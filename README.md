@@ -46,20 +46,23 @@ points where LLM-assisted work most often becomes unverifiable.
 
 ## Start Here
 
-1. Read the framework index:
+1. Walk through a greenfield bootstrap:
+   [`walk-through/walkthrough.md`](walk-through/walkthrough.md)
+2. Read the framework index:
    [`docs/tessallite-pattern/_INDEX.md`](docs/tessallite-pattern/_INDEX.md)
-2. Read the handbook:
+3. Read the handbook:
    [`docs/tessallite-pattern/framework-handbook.md`](docs/tessallite-pattern/framework-handbook.md)
-3. Use the lifecycle guide for real delivery:
+4. Use the lifecycle guide for real delivery:
    [`docs/tessallite-pattern/lifecycle-guide.md`](docs/tessallite-pattern/lifecycle-guide.md)
-4. Copy the templates you need from:
+5. Copy the templates you need from:
    [`docs/tessallite-pattern/templates/`](docs/tessallite-pattern/templates/)
-5. Run the documentation index guard when you adopt the tiered docs structure:
+6. Run the documentation index guard when you adopt the tiered docs structure:
    `bash scripts/check-docs-index.sh`
 
 Short path:
 
 - New project:
+  [`greenfield walkthrough`](walk-through/walkthrough.md), then
   [`bootstrap-greenfield-project-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-greenfield-project-prompt.md)
 - Existing codebase:
   [`bootstrap-existing-codebase-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-existing-codebase-prompt.md)
@@ -143,8 +146,8 @@ set of gates.
 
 ## Visual Assets
 
-This repository includes Tessallite-branded illustrations under
-[`illustrations/`](illustrations/).
+This repository includes Tessallite-branded illustrations and walkthrough
+screenshots.
 
 - [`illustrations/generated-text/`](illustrations/generated-text/): broader
   slide-style illustrations with generated text embedded in the image
@@ -152,6 +155,8 @@ This repository includes Tessallite-branded illustrations under
   simple flat illustrations for the four structural elements
 - [`illustrations/BRAND_BRIEF.md`](illustrations/BRAND_BRIEF.md): palette and
   style rules used for the artwork
+- [`walk-through/walkthrough.md`](walk-through/walkthrough.md): synthetic
+  macOS/Codex greenfield bootstrap walkthrough with terminal screenshots
 
 ## Contents
 
@@ -167,6 +172,7 @@ This repository includes Tessallite-branded illustrations under
 - `examples/`: worked example of a feature moving through the pattern
 - `training/`: workshop material and exercises
 - `illustrations/`: brand-aligned visuals for docs, slides, and articles
+- `walk-through/`: greenfield bootstrap walkthrough and screenshot sequence
 - `scripts/check-docs-index.sh`: lightweight index consistency guard
 
 ## Repository Map
@@ -177,6 +183,7 @@ This repository includes Tessallite-branded illustrations under
 | [`docs/_INDEX.md`](docs/_INDEX.md) | L0 documentation router. |
 | [`docs/tessallite-pattern/`](docs/tessallite-pattern/) | Framework handbook, lifecycle, governance, adoption, templates, prompts, examples, and training. |
 | [`illustrations/`](illustrations/) | Tessallite-branded visual assets. |
+| [`walk-through/walkthrough.md`](walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough. |
 | [`scripts/check-docs-index.sh`](scripts/check-docs-index.sh) | Documentation index consistency guard. |
 
 ## Use It On A Project

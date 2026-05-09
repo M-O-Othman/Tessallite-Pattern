@@ -20,6 +20,11 @@ The materials are ready to use as a starting kit. Teams should adapt names and
 folder paths to their own repo, but should preserve the gates unless they have
 a deliberate replacement.
 
+For a first-use visual walkthrough, start with
+[walk-through/walkthrough.md](../../walk-through/walkthrough.md). It shows a
+macOS/Codex greenfield bootstrap sequence from project directory creation
+through the first product questions.
+
 ## Core Framework Documents
 
 | File | Purpose |
@@ -80,6 +85,7 @@ a deliberate replacement.
 | File | Purpose |
 | --- | --- |
 | [examples/worked-feature-example.md](examples/worked-feature-example.md) | A sample feature moving through requirements, questions, spec, plan, review, and session close. |
+| [walk-through/walkthrough.md](../../walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough with terminal screenshots. |
 
 ## Training
 

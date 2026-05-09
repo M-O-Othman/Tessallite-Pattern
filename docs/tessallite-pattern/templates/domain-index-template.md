@@ -4,7 +4,8 @@ Status: active
 Last meaningful update: YYYY-MM-DD
 
 This is the L1 index for `<domain>`. It summarizes the domain and lists every
-active document in this folder.
+active document in this domain. If the domain uses nested folders, list nested
+documents by relative path, such as `prompts/example-prompt.md`.
 
 ## Current State
 
@@ -17,6 +18,7 @@ open first.
 | File | Purpose | Status |
 | --- | --- | --- |
 | [`<domain>_<name>.md`](<domain>_<name>.md) | `<purpose>` | active |
+| [`<nested>/<file>.md`](<nested>/<file>.md) | `<purpose>` | active |
 
 ## Draft Or Pending Documents
 
@@ -37,4 +39,5 @@ domain keeps local archive references, list them here.
 
 - Start with `<file>` for `<need>`.
 - Use `<file>` when investigating `<topic>`.
-
+- If a nested folder has its own `_INDEX.md`, use it as the local inventory for
+  that folder.

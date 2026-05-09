@@ -9,21 +9,28 @@ documentation.
 
 ## How To Use This File
 
-1. Open your agentic coding tool in the existing project workspace.
-2. Make `agent-memory-instructions.md` available to the agent by either:
+1. Open a shell in the existing project workspace and inspect the worktree before
+   changing files.
+2. Copy this prompt and `agent-memory-instructions.md` into the workspace, attach
+   both files to the agent chat, or be ready to paste their contents when the
+   agent asks for them.
+3. Open your agentic coding tool from the existing project root.
+4. Send the prompt below into the agent chat. In a terminal-based tool such as
+   Codex or Claude Code, this is chat input, not a shell command.
+5. The agent should create or update the persistent memory file in the target
+   project, usually `AGENTS.md`, by copying the contents of
+   `agent-memory-instructions.md`.
+
+Make `agent-memory-instructions.md` available to the agent by either:
    - copying it into the target workspace next to this prompt,
    - attaching it to the chat, or
    - pasting its contents after the prompt when the agent asks for it.
-3. Paste the prompt below into the agent chat.
-4. The agent should create or update the persistent memory file in the target
-   project, usually `AGENTS.md`, by copying the contents of
-   `agent-memory-instructions.md`.
 
 For persistent agent memory, keep this file next to:
 
 - [agent-memory-instructions.md](agent-memory-instructions.md)
 
-## Prompt To Paste Into The Agent Chat
+## Prompt To Send Into The Agent Chat
 
 ```text
 You are helping adopt the Tessallite Pattern in an existing software codebase.
@@ -89,7 +96,7 @@ What this structure is for:
 - work/logs/project-journal.md: durable project journal for significant work,
   discoveries, and course changes.
 - scripts/check-docs-index.sh: local guard that checks active docs are listed
-  in their domain index.
+  in their domain index, and in nested indexes when a nested folder has one.
 
 If equivalent folders already exist, reuse them and map them into the L0/L1/L2
 router instead of creating duplicates.
@@ -114,6 +121,8 @@ The system map should summarize:
 
 Maintenance rules:
 - When a doc is created, add it to its domain `_INDEX.md` immediately.
+- When a doc is created inside a nested folder with its own `_INDEX.md`, update
+  both the domain index and the nested index.
 - When a doc is superseded, move or mark it and update the relevant index.
 - When behavior, setup, contracts, or architecture change, update the relevant
   docs in the same phase.

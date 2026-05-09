@@ -24,8 +24,9 @@ Rules:
 
 When creating or moving docs:
 - update the relevant L1 index immediately
+- if the file is in a nested folder with its own _INDEX.md, update that nested
+  index too
 - update L0 only when a new domain is created
 - preserve status and last meaningful update fields
 - run the docs index checker if available
 ```
-
