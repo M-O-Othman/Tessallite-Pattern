@@ -97,6 +97,19 @@ The LLM can draft and audit. The architect decides. The pattern depends on a
 human or accountable technical owner who can answer ambiguity, review trade-offs,
 and reject plausible but wrong output.
 
+### Principle 9: Local Skills Must Become Project Rules
+
+High-quality code depends on more than generic lifecycle gates. Every serious
+codebase has local skills: command wrappers, test expectations, UI standards,
+help-file conventions, glossary terms, deployment rules, configuration layers,
+SQL architecture, screenshot workflows, and publishing constraints.
+
+During bootstrap, convert those skills into assistant-neutral project rules
+using [prompts/project-feedback-rules.md](prompts/project-feedback-rules.md).
+Keep short rules in persistent memory and move longer command recipes or
+references into indexed docs. This prevents a new coding assistant from
+forgetting the hard-won lessons of previous sessions.
+
 ## 4. Roles
 
 The pattern uses roles as responsibilities, not theatre. These roles can be
@@ -234,6 +247,8 @@ documentation cache from silent decay.
 | Registry | Issue registry | active | No untracked blocking issue remains. |
 | Continuity | Session handout | closed | Next session can resume from it. |
 | History | Project journal entry | active | Significant work has durable narrative. |
+| Skills | Project feedback rules | active | Local review feedback, command constraints, and reference pointers are installed as assistant-neutral rules. |
+| Commands | Command registry | active | Approved verification, generation, deploy, and publish commands are discoverable before implementation. |
 
 ## 7. Status Vocabulary
 
@@ -284,6 +299,32 @@ Do not leave it appearing complete.
 
 An open question must have an owner. If the architect cannot answer yet, the
 question remains pending or the implementation is explicitly narrowed.
+
+### Rule 8: No Unregistered Critical Commands
+
+Critical commands should be discoverable before a phase depends on them. Record
+test, build, lint, typecheck, screenshot, help-generation, seed/reset, smoke,
+deploy, and publish commands in a command registry such as
+[templates/command-registry-template.md](templates/command-registry-template.md).
+
+If a project requires a wrapper, environment file, release script, or
+dual-remote publishing command, the assistant must use that approved command
+instead of a bare tool invocation.
+
+### Rule 9: No Lost Local Skills
+
+Repeated feedback from prior work should not remain trapped in a single chat or
+assistant product. Convert it into project memory:
+
+- short behavioral skills go in the persistent memory file
+- long references go in indexed docs
+- command recipes go in the command registry or developer guide
+- conflicts go to open questions or the issue registry
+
+This includes skills such as preserving test intent, refusing to dismiss failing
+tests, using judgement-based test cadence, refreshing screenshots after UI
+changes, respecting product terminology, and avoiding new dependencies without
+approval.
 
 ## 9. When To Use The Pattern
 
@@ -340,6 +381,8 @@ domain.
 | Issue registry becomes a backlog dump | Old findings remain open with no owner. | Add owner, next action, and review date fields. |
 | Handouts become vague | Next session cannot resume. | Require exact current state, key files, and next command or action. |
 | Docs index drifts | File exists but is not discoverable. | Run `scripts/check-docs-index.sh` locally and in CI. |
+| Local skills are not installed | A new assistant repeats old mistakes or runs unsafe bare commands. | Bootstrap with [prompts/project-feedback-rules.md](prompts/project-feedback-rules.md) and keep a command registry. |
+| Command rules live only in chat | Tests, deploys, screenshots, or publishing are run inconsistently. | Register approved commands and wrappers in [templates/command-registry-template.md](templates/command-registry-template.md). |
 | Team overuses the pattern | Small changes become slow. | Apply the lightweight path for low-risk work. |
 
 ## 12. Definition Of Done
@@ -351,11 +394,17 @@ A feature is done when:
 - design spec is active and implementation reflects it
 - implementation plan tasks are complete, skipped with reason, or superseded
 - tests cover the risk introduced
+- approved command wrappers and verification commands were used
 - adversarial review findings are fixed or tracked
 - user-facing and internal docs are updated
 - indexes point to the new or changed docs
 - session handout records current state
 - `work/logs/project-journal.md` captures the work if it was significant
+
+For a full cycle check, use
+[quality-cycle-readiness.md](quality-cycle-readiness.md). It maps the lifecycle,
+skills layer, command discipline, verification points, and remaining
+recommended improvements into one readiness view.
 
 ## 13. The Short Version
 

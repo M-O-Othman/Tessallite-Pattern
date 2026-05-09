@@ -181,9 +181,16 @@ screenshots.
 | --- | --- |
 | [`tessallite-pattern.md`](tessallite-pattern.md) | Source article and field report. |
 | [`docs/_INDEX.md`](docs/_INDEX.md) | L0 documentation router. |
+| [`docs/architecture/`](docs/architecture/) | Current repository system map and technical operating assumptions. |
+| [`docs/questions/`](docs/questions/) | Adoption questions and unresolved repository-level decisions. |
+| [`docs/execution/`](docs/execution/) | Operational issue registry and delivery tracking. |
+| [`docs/guides/`](docs/guides/) | Maintainer and developer guides for this repository. |
 | [`docs/tessallite-pattern/`](docs/tessallite-pattern/) | Framework handbook, lifecycle, governance, adoption, templates, prompts, examples, and training. |
+| [`docs/archive/`](docs/archive/) | Superseded or historical documentation retained for traceability. |
 | [`illustrations/`](illustrations/) | Tessallite-branded visual assets. |
 | [`walk-through/walkthrough.md`](walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough. |
+| [`work/logs/project-journal.md`](work/logs/project-journal.md) | Session continuity journal for significant repository maintenance. |
+| [`work/sessions/`](work/sessions/) | Handoff notes for long-running or significant sessions. |
 | [`scripts/check-docs-index.sh`](scripts/check-docs-index.sh) | Documentation index consistency guard. |
 
 ## Use It On A Project

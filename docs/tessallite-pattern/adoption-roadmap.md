@@ -19,6 +19,12 @@ For a practical first adoption session, use the
 [greenfield walkthrough](../../walk-through/walkthrough.md). It demonstrates the
 minimum project setup before any application code is written.
 
+When a project already has assistant memories, command wrappers, help-system
+rules, UI standards, deployment scripts, or repeated review feedback, also use
+[prompts/project-feedback-rules.md](prompts/project-feedback-rules.md). Those
+skills are part of the adoption surface because they preserve the local
+engineering judgment that generic prompts do not know.
+
 ## Level 0: Baseline
 
 Use when the project is still experimenting.
@@ -53,6 +59,32 @@ Success criteria:
 
 - requirements conversations produce fewer surprise assumptions
 - architects answer explicit questions instead of correcting hidden guesses
+
+## Level 1b: Project Skills And Command Discipline
+
+Goal: preserve local engineering rules before implementation starts.
+
+Add:
+
+- project feedback rules from
+  [prompts/project-feedback-rules.md](prompts/project-feedback-rules.md)
+- command registry from
+  [templates/command-registry-template.md](templates/command-registry-template.md)
+- references for UI, help, deploy, publishing, configuration, test, screenshot,
+  and data-seeding conventions where they exist
+
+Minimum artefacts:
+
+- persistent memory entry for project-specific behavioral rules
+- command registry or developer guide section naming approved commands
+- linked references for longer command recipes and local conventions
+
+Success criteria:
+
+- assistants do not run unsafe bare commands when wrappers exist
+- repeated feedback becomes a standing project rule
+- tool-specific settings are separated from reusable project policy
+- command and skill conflicts are resolved before phase delivery
 
 ## Level 2: Spec And Plan Discipline
 
@@ -151,6 +183,8 @@ Success criteria:
 ### Week 1: Install The Core Gates
 
 - choose one active feature
+- install project feedback rules and command registry if prior assistant
+  memories or command wrappers exist
 - create requirements and open-questions files
 - block planning until questions are answered
 - write a short design spec

@@ -11,7 +11,12 @@ document; domain indexes route to detailed inventories and nested indexes.
 
 | Domain | Purpose | Index |
 | --- | --- | --- |
+| Architecture | Current repository structure, system map, runtime assumptions, and technical boundaries for this framework kit. | [docs/architecture/_INDEX.md](architecture/_INDEX.md) |
+| Questions | Adoption questions, first-pass ambiguity, and decisions needed before changing repository behavior or release process. | [docs/questions/_INDEX.md](questions/_INDEX.md) |
+| Execution | Issue registry, delivery tracking, phase plans, and implementation evidence for repository maintenance. | [docs/execution/_INDEX.md](execution/_INDEX.md) |
+| Guides | Developer and maintainer guides for working in this repository. | [docs/guides/_INDEX.md](guides/_INDEX.md) |
 | Tessallite Pattern | Framework handbook, lifecycle, templates, prompts, examples, training materials, and governance artefacts derived from the original Tessallite Pattern article. | [docs/tessallite-pattern/_INDEX.md](tessallite-pattern/_INDEX.md) |
+| Archive | Superseded, duplicate, or closed documents retained for historical traceability. | [docs/archive/_INDEX.md](archive/_INDEX.md) |
 
 ## Routing Rule
 

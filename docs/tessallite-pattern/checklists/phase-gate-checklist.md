@@ -40,6 +40,8 @@ Date:
 - [ ] Relevant unit tests were added or updated.
 - [ ] Integration tests were added or updated where contracts changed.
 - [ ] Edge cases from open questions are tested where practical.
+- [ ] Verification commands were taken from the command registry or approved
+      project guidance.
 - [ ] Verification commands were run.
 - [ ] Test failures are fixed or documented with owner and next action.
 
@@ -55,6 +57,8 @@ Date:
 
 - [ ] User-facing docs are updated if behavior changed.
 - [ ] Internal docs are updated if contracts or architecture changed.
+- [ ] Help pages, screenshots, or generated assets are refreshed if the UI or
+      help workflow changed.
 - [ ] L1 index entries are added or updated where needed.
 - [ ] Superseded docs are archived or marked.
 - [ ] The docs index checker passes if enabled.
@@ -67,6 +71,20 @@ Date:
 
 ## 8. Closure Decision
 
+## 8. Skills And Commands
+
+- [ ] Project-specific feedback rules were followed.
+- [ ] No new library, framework, package, service, or tool was introduced
+      without architect approval.
+- [ ] Required command wrappers, env files, deploy scripts, or publish scripts
+      were used instead of unsafe bare commands.
+- [ ] New command knowledge was added to the command registry or developer
+      guide.
+- [ ] Repeated feedback from this phase was converted into a rule, reference,
+      open question, or issue registry entry.
+
+## 9. Closure Decision
+
 Decision:
 
 - [ ] close phase
@@ -76,4 +94,3 @@ Decision:
 Architect notes:
 
 Required follow-up:
-

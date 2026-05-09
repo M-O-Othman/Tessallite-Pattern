@@ -31,6 +31,7 @@ through the first product questions.
 | --- | --- |
 | [framework-handbook.md](framework-handbook.md) | Full explanation of the pattern, principles, roles, gates, artefacts, and operating rules. |
 | [lifecycle-guide.md](lifecycle-guide.md) | End-to-end feature delivery lifecycle from high-level requirements through session close. |
+| [quality-cycle-readiness.md](quality-cycle-readiness.md) | Readiness check for the complete high-quality code development cycle, including skills and command discipline. |
 | [adoption-roadmap.md](adoption-roadmap.md) | Practical rollout plan for teams adopting the pattern gradually. |
 | [governance-model.md](governance-model.md) | Rules for ownership, documentation status, gate enforcement, issue registries, and exceptions. |
 | [issue-registry.md](issue-registry.md) | Kit-level documentation, governance, and process issues found while maintaining the pattern. |
@@ -46,6 +47,7 @@ through the first product questions.
 | [templates/design-spec-template.md](templates/design-spec-template.md) | Create a frozen implementation contract with schemas, APIs, validation, and trade-offs. |
 | [templates/architecture-decision-template.md](templates/architecture-decision-template.md) | Record important architectural choices and alternatives. |
 | [templates/implementation-plan-template.md](templates/implementation-plan-template.md) | Convert a frozen spec into sequential implementation phases and tasks. |
+| [templates/command-registry-template.md](templates/command-registry-template.md) | Register approved verification, generated-asset, deploy, publish, and wrapper commands. |
 | [templates/adversarial-review-report-template.md](templates/adversarial-review-report-template.md) | Report findings from an independent phase auditor. |
 | [templates/issue-registry-template.md](templates/issue-registry-template.md) | Track bugs, risks, missing wiring, and unresolved findings. |
 | [templates/session-handout-template.md](templates/session-handout-template.md) | Preserve session state for the next working session. |
@@ -66,6 +68,7 @@ through the first product questions.
 | --- | --- |
 | [prompts/_INDEX.md](prompts/_INDEX.md) | Nested prompt inventory and orchestration guide mapping prompts to lifecycle stages and gates. |
 | [prompts/agent-memory-instructions.md](prompts/agent-memory-instructions.md) | Shared persistent project-memory rules for agentic coding tools. |
+| [prompts/project-feedback-rules.md](prompts/project-feedback-rules.md) | Generic bootstrap supplement for converting tool-specific feedback memories and reference pointers into assistant-neutral project rules. |
 | [prompts/bootstrap-greenfield-project-prompt.md](prompts/bootstrap-greenfield-project-prompt.md) | Quick-start prompt for applying the Tessallite Pattern to a new empty or greenfield workspace. |
 | [prompts/bootstrap-existing-codebase-prompt.md](prompts/bootstrap-existing-codebase-prompt.md) | Quick-start prompt for retrofitting the Tessallite Pattern into an existing software codebase. |
 | [prompts/requirements-authoring-prompt.md](prompts/requirements-authoring-prompt.md) | Prompt for drafting requirements before the first open-questions gate. |

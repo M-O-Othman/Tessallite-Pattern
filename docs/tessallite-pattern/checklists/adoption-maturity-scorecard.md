@@ -68,14 +68,25 @@ Subtotal:
 
 Subtotal:
 
+## 6. Skills And Command Discipline
+
+| Practice | Score | Evidence |
+| --- | --- | --- |
+| Project-specific feedback rules are installed in persistent memory. |  |  |
+| Approved test/build/deploy/publish commands are registered. |  |  |
+| Assistants use project wrappers instead of unsafe bare commands. |  |  |
+| Repeated feedback becomes durable project rules or references. |  |  |
+
+Subtotal:
+
 ## Interpretation
 
 | Total | Meaning |
 | --- | --- |
-| 0-15 | Mostly informal AI coding. High risk of drift. |
-| 16-30 | Some useful discipline, but gates are not reliable. |
-| 31-45 | Pattern is operational but may depend on individual habit. |
-| 46-60 | Strong adoption. Verification and context governance are load-bearing. |
+| 0-18 | Mostly informal AI coding. High risk of drift. |
+| 19-36 | Some useful discipline, but gates are not reliable. |
+| 37-54 | Pattern is operational but may depend on individual habit. |
+| 55-72 | Strong adoption. Verification, command discipline, and context governance are load-bearing. |
 
 ## Improvement Plan
 

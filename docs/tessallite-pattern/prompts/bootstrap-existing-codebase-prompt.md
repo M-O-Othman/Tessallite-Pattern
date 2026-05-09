@@ -11,9 +11,9 @@ documentation.
 
 1. Open a shell in the existing project workspace and inspect the worktree before
    changing files.
-2. Copy this prompt and `agent-memory-instructions.md` into the workspace, attach
-   both files to the agent chat, or be ready to paste their contents when the
-   agent asks for them.
+2. Copy this prompt, `agent-memory-instructions.md`, and optionally
+   `project-feedback-rules.md` into the workspace, attach those files to the
+   agent chat, or be ready to paste their contents when the agent asks for them.
 3. Open your agentic coding tool from the existing project root.
 4. Send the prompt below into the agent chat. In a terminal-based tool such as
    Codex or Claude Code, this is chat input, not a shell command.
@@ -26,9 +26,15 @@ Make `agent-memory-instructions.md` available to the agent by either:
    - attaching it to the chat, or
    - pasting its contents after the prompt when the agent asks for it.
 
+If the project already has feedback memories, tool-specific rules,
+configuration scripts, local tool settings, or reference pointers from another
+assistant, also make `project-feedback-rules.md` available so the agent can
+convert them into generic project rules.
+
 For persistent agent memory, keep this file next to:
 
 - [agent-memory-instructions.md](agent-memory-instructions.md)
+- [project-feedback-rules.md](project-feedback-rules.md)
 
 ## Prompt To Send Into The Agent Chat
 
@@ -56,6 +62,28 @@ Persistent project memory:
   add a clearly marked Tessallite Pattern section there.
 - If this project uses another memory mechanism, ask me where it belongs.
 - Do not duplicate the same rules into many files unless I ask for that.
+
+Project feedback rules:
+- Search for existing feedback memories, coding-assistant rules, glossary
+  constraints, test rules, UI rules, deployment command constraints, and
+  reference pointers, publishing scripts, assistant config scripts, and local
+  tool settings.
+- Check common locations such as `AGENTS.md`, `CLAUDE.md`, `.cursor/rules`,
+  `.claude/`, `.github/copilot-instructions.md`, `docs/guides/`,
+  `docs/architecture/`, `docs/execution/`, `work/sessions/`, help indexes,
+  screenshot scripts, deploy scripts, release scripts, and assistant settings
+  bootstrap scripts.
+- If any are found or provided, convert tool-specific or first-person wording
+  into generic project rules that any coding assistant can follow.
+- Use `project-feedback-rules.md` as the conversion guide when available.
+- Keep short behavioral rules in persistent memory.
+- Put long references in indexed docs and link them from memory.
+- Keep tool-specific settings such as model choice, plugin lists, permission
+  modes, local home-directory paths, and automatic publishing toggles out of
+  project memory unless I explicitly ask to document them as local setup.
+- If a project-specific feedback rule conflicts with the default Tessallite
+  artefact layout, preserve the verification gate and ask me to choose the
+  authoritative convention.
 
 Core principle:
 - The bottleneck is verification, not generation.
@@ -143,6 +171,8 @@ First task:
 Orient yourself in the codebase and report:
 - persistent project memory location and whether the Tessallite rules were
   installed
+- project-specific feedback rules found, installed, linked, skipped, or needing
+  architect decision
 - documentation and log paths created or mapped
 - detected stack
 - important directories
@@ -170,6 +200,7 @@ Use this prompt when:
 The agent should produce:
 
 - persistent project memory location and contents installed
+- project-specific feedback rules installed or explicitly absent
 - documentation and log paths created or mapped
 - a codebase orientation
 - detected test/build commands

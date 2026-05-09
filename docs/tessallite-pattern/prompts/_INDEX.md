@@ -11,7 +11,7 @@ that follows the lifecycle and gate model.
 
 | Stage | Goal | Prompt | Output Format / Gate |
 | --- | --- | --- | --- |
-| Bootstrap | Install project memory and docs structure. | [bootstrap-greenfield-project-prompt.md](bootstrap-greenfield-project-prompt.md) or [bootstrap-existing-codebase-prompt.md](bootstrap-existing-codebase-prompt.md) | [agent-memory-instructions.md](agent-memory-instructions.md) |
+| Bootstrap | Install project memory, project feedback rules, and docs structure. | [bootstrap-greenfield-project-prompt.md](bootstrap-greenfield-project-prompt.md) or [bootstrap-existing-codebase-prompt.md](bootstrap-existing-codebase-prompt.md) | [agent-memory-instructions.md](agent-memory-instructions.md), [project-feedback-rules.md](project-feedback-rules.md) |
 | Session start | Rebuild context before work. | [session-continuity-prompts.md](session-continuity-prompts.md) | Orientation before implementation |
 | Feature continuation | Resume an existing multi-session feature. | [feature-continuation-prompt.md](feature-continuation-prompt.md) | Active spec, plan, phase, and issues confirmed |
 | Stage 1 | Draft requirements. | [requirements-authoring-prompt.md](requirements-authoring-prompt.md) | [requirements-template.md](../templates/requirements-template.md) |
@@ -35,6 +35,7 @@ that follows the lifecycle and gate model.
 | File | Purpose |
 | --- | --- |
 | [agent-memory-instructions.md](agent-memory-instructions.md) | Persistent project-memory rules for agentic coding tools. |
+| [project-feedback-rules.md](project-feedback-rules.md) | Generic conversion guide for project-specific feedback rules and reference pointers from any coding assistant. |
 | [bootstrap-greenfield-project-prompt.md](bootstrap-greenfield-project-prompt.md) | Bootstrap a new project with the Tessallite Pattern. |
 | [bootstrap-existing-codebase-prompt.md](bootstrap-existing-codebase-prompt.md) | Retrofit the Tessallite Pattern into an existing codebase. |
 | [requirements-authoring-prompt.md](requirements-authoring-prompt.md) | Draft requirements before design begins. |
@@ -59,12 +60,13 @@ that follows the lifecycle and gate model.
 - Phase implementation must be reviewed before phase closure.
 - Session closure must preserve current state before work stops.
 
-## If You Only Use Three Files
+## If You Only Use Four Files
 
 For a quick start, use:
 
 1. [agent-memory-instructions.md](agent-memory-instructions.md)
-2. One bootstrap prompt:
+2. [project-feedback-rules.md](project-feedback-rules.md)
+3. One bootstrap prompt:
    - [bootstrap-greenfield-project-prompt.md](bootstrap-greenfield-project-prompt.md)
    - [bootstrap-existing-codebase-prompt.md](bootstrap-existing-codebase-prompt.md)
-3. This orchestration guide.
+4. This orchestration guide.

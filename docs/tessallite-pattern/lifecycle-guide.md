@@ -28,6 +28,13 @@ For a concrete first-session setup example, use the
 [greenfield walkthrough](../../walk-through/walkthrough.md) before starting the
 requirements stage.
 
+Before feature work begins, install any project-specific skills and command
+rules with
+[prompts/project-feedback-rules.md](prompts/project-feedback-rules.md). Use a
+command registry such as
+[templates/command-registry-template.md](templates/command-registry-template.md)
+to name approved test, build, lint, screenshot, deploy, and publish commands.
+
 ## Stage 1: High-Level Requirements
 
 Goal: describe the feature in business terms before implementation detail
@@ -155,6 +162,7 @@ A good implementation plan:
 - has exact file paths where known
 - maps tasks to spec sections
 - gives verification commands
+- uses commands from the project command registry where one exists
 - defines phase exit conditions
 - identifies dependency order
 - separates risky changes into smaller phases
@@ -190,7 +198,7 @@ For each phase:
 2. Implement only the scoped phase.
 3. Update tests.
 4. Update docs if behavior changed.
-5. Run local verification commands.
+5. Run local verification commands from the project command registry.
 6. Run adversarial review in fresh context.
 7. Fix findings or log them.
 8. Run the phase gate checklist.
@@ -297,8 +305,11 @@ Use this for high-risk or multi-module work.
 8. Issue registry updates
 9. Documentation index updates
 10. User guide or help updates
-11. Session handout
-12. Project journal entry
+11. Screenshot or generated-asset refresh if UI/help changed
+12. Command registry updates if new verification or wrapper commands were
+    discovered
+13. Session handout
+14. Project journal entry
 
 ## Traceability Matrix
 
@@ -319,6 +330,8 @@ Healthy:
 - issue registry contains current ownership
 - handouts make the next session faster
 - docs index check is boring and green
+- approved command wrappers are used consistently
+- recurring feedback becomes project memory rather than repeated chat advice
 
 Unhealthy:
 
@@ -328,3 +341,5 @@ Unhealthy:
 - docs are updated only after release
 - handouts say "continue work" without exact next steps
 - active indexes point to stale or archived files
+- assistants run bare commands when the project has wrappers
+- the same feedback is repeated across sessions without becoming a rule
