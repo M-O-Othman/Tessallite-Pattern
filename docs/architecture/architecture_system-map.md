@@ -28,6 +28,8 @@ database, compiled binary, or test suite beyond repository maintenance scripts.
 | `walk-through/walkthrough.md` | Visual macOS/Codex greenfield bootstrap walkthrough. |
 | `scripts/check-docs-index.sh` | Documentation index consistency guard. |
 | `scripts/generate-walkthrough-assets.js` | Deterministic screenshot generator for the walkthrough PNGs. |
+| `scripts/bootstrap-tessallite-pattern.sh` | macOS/Linux bootstrap script for applying the pattern to a target project. |
+| `scripts/bootstrap-tessallite-pattern.bat` | Windows bootstrap launcher for applying the same scaffold through PowerShell. |
 
 ## Primary Modules
 
@@ -64,6 +66,8 @@ history.
 | Workflow | Command Or Path | Expected Result |
 | --- | --- | --- |
 | Verify documentation indexes | `bash scripts/check-docs-index.sh` | Fails if active Markdown files are missing from domain or nested indexes. |
+| Bootstrap target project on macOS/Linux | `bash scripts/bootstrap-tessallite-pattern.sh /path/to/project --greenfield` | Creates persistent memory, docs domains, starter questions, command registry, journal, and index guard. |
+| Bootstrap target project on Windows | `scripts\bootstrap-tessallite-pattern.bat C:\path\to\project -Greenfield` | Creates the same scaffold using Windows batch plus PowerShell. |
 | Regenerate walkthrough screenshots | `node scripts/generate-walkthrough-assets.js` | Rewrites PNGs under `walk-through/illustrations/`. |
 | Read greenfield adoption path | `walk-through/walkthrough.md` | Shows macOS/Codex setup from project directory creation through initial questions. |
 | Find framework prompts | `docs/tessallite-pattern/prompts/_INDEX.md` | Routes prompts by lifecycle stage and inventory. |

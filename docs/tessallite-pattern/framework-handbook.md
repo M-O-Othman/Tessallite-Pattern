@@ -9,10 +9,11 @@ framework for AI-assisted software delivery. It is written for architects,
 technical leads, solo builders, and teams using LLMs on systems where mistakes
 compound across many files, contracts, and sessions.
 
-If you are adopting the pattern in a new project, review the
-[greenfield walkthrough](../../walk-through/walkthrough.md) first. It shows the
-macOS Terminal and Codex sequence for bootstrapping project memory, documentation
-indexes, starter docs, and initial product questions before application code.
+If you are adopting the pattern in a project, start with
+[bootstrap-user-journey.md](bootstrap-user-journey.md). It explains the fast
+scripted path, the guided walkthrough path, and the manual prompt path. The key
+rule is to choose one bootstrap path for setup, then use the assistant to
+inspect, adapt, and answer questions rather than recreating the same scaffold.
 
 ## 1. Executive Summary
 

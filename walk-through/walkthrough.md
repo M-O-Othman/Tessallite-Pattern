@@ -8,6 +8,13 @@ new greenfield project with the Tessallite Pattern. The screenshots use the
 Tessallite palette: corporate green, premium gold, charcoal, white, soft mint,
 and accessible gray.
 
+This is the guided manual path. If you already ran
+`scripts/bootstrap-tessallite-pattern.sh` or
+`scripts\bootstrap-tessallite-pattern.bat`, do not repeat this walkthrough as a
+second bootstrap. Instead, open the generated
+`work/sessions/bootstrap-next-prompt.md` in the target project and use that as
+the first assistant prompt.
+
 The sequence uses Codex as the agentic coding tool. If your team uses Claude
 Code, run `claude` instead of `codex` at the agent step and follow the same
 instructions in the terminal chat.

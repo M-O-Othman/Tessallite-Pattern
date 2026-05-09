@@ -35,6 +35,11 @@ framework kit repository itself.
 - Added explicit conflict-resolution guidance so generic rules do not force
   unrelated README/user-guide edits, generic `action-plan.md` files,
   unsolicited close-out, automatic commits, or unsafe permission defaults.
+- Added `scripts/bootstrap-tessallite-pattern.sh` and
+  `scripts/bootstrap-tessallite-pattern.bat` so the pattern can be scaffolded
+  directly into a target project.
+- Smoke-tested the Bash bootstrap script in `/tmp/tessallite-bootstrap-smoke`;
+  the generated `scripts/check-docs-index.sh` passed.
 
 ## Current State
 
@@ -57,6 +62,8 @@ No implementation blocker is active.
 - For real target-project adoption, decide which project-specific feedback
   rules should be installed as hard memory rules and which should remain linked
   references.
+- Run the Windows batch bootstrap on a Windows machine before release tagging;
+  PowerShell was not available in this Linux environment.
 
 ## Verification To Run
 
@@ -73,4 +80,6 @@ bash scripts/check-docs-index.sh
 - `docs/execution/execution_issue-registry.md`
 - `docs/guides/guides_developer-guide.md`
 - `docs/tessallite-pattern/prompts/project-feedback-rules.md`
+- `scripts/bootstrap-tessallite-pattern.sh`
+- `scripts/bootstrap-tessallite-pattern.bat`
 - `work/logs/project-journal.md`

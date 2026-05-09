@@ -37,3 +37,9 @@ bootstrap scripts. The important separation is now explicit: reusable behavior
 rules may become project memory, but model settings, plugins, broad permission
 allowlists, home-directory paths, and automatic publishing toggles remain local
 tool setup unless the architect deliberately makes them project policy.
+
+The kit then gained direct bootstrap automation: a macOS/Linux shell script and
+a Windows batch launcher. These scripts carry the opening scaffold into a target
+project without relying on a specific assistant product. The shell script was
+smoke-tested against a temporary project and the generated documentation index
+guard passed.

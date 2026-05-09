@@ -20,16 +20,17 @@ The materials are ready to use as a starting kit. Teams should adapt names and
 folder paths to their own repo, but should preserve the gates unless they have
 a deliberate replacement.
 
-For a first-use visual walkthrough, start with
-[walk-through/walkthrough.md](../../walk-through/walkthrough.md). It shows a
-macOS/Codex greenfield bootstrap sequence from project directory creation
-through the first product questions.
+For first use, start with
+[bootstrap-user-journey.md](bootstrap-user-journey.md). It explains when to use
+the fast scripts, the guided walkthrough, or the manual bootstrap prompts
+without mixing the paths.
 
 ## Core Framework Documents
 
 | File | Purpose |
 | --- | --- |
 | [framework-handbook.md](framework-handbook.md) | Full explanation of the pattern, principles, roles, gates, artefacts, and operating rules. |
+| [bootstrap-user-journey.md](bootstrap-user-journey.md) | Canonical scripted, guided, and manual bootstrap paths for new and existing projects. |
 | [lifecycle-guide.md](lifecycle-guide.md) | End-to-end feature delivery lifecycle from high-level requirements through session close. |
 | [quality-cycle-readiness.md](quality-cycle-readiness.md) | Readiness check for the complete high-quality code development cycle, including skills and command discipline. |
 | [adoption-roadmap.md](adoption-roadmap.md) | Practical rollout plan for teams adopting the pattern gradually. |
@@ -89,6 +90,13 @@ through the first product questions.
 | --- | --- |
 | [examples/worked-feature-example.md](examples/worked-feature-example.md) | A sample feature moving through requirements, questions, spec, plan, review, and session close. |
 | [walk-through/walkthrough.md](../../walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough with terminal screenshots. |
+
+## Bootstrap Scripts
+
+| File | Purpose |
+| --- | --- |
+| [scripts/bootstrap-tessallite-pattern.sh](../../scripts/bootstrap-tessallite-pattern.sh) | macOS/Linux bootstrap script for new or existing target projects. |
+| [scripts/bootstrap-tessallite-pattern.bat](../../scripts/bootstrap-tessallite-pattern.bat) | Windows bootstrap launcher using the same scaffold through PowerShell. |
 
 ## Training
 

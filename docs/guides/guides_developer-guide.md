@@ -42,6 +42,21 @@ Run the docs index guard after documentation changes:
 bash scripts/check-docs-index.sh
 ```
 
+Bootstrap a target project on macOS/Linux:
+
+```bash
+bash scripts/bootstrap-tessallite-pattern.sh /path/to/project --greenfield
+```
+
+Bootstrap a target project on Windows:
+
+```bat
+scripts\bootstrap-tessallite-pattern.bat C:\path\to\project -Greenfield
+```
+
+The Windows launcher expects PowerShell to be available, which is the normal
+case on supported Windows installations.
+
 Regenerate the greenfield walkthrough screenshots after editing
 `scripts/generate-walkthrough-assets.js`:
 

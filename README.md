@@ -46,25 +46,30 @@ points where LLM-assisted work most often becomes unverifiable.
 
 ## Start Here
 
-1. Walk through a greenfield bootstrap:
+1. Choose a bootstrap path:
+   [`bootstrap-user-journey.md`](docs/tessallite-pattern/bootstrap-user-journey.md)
+2. For a guided example, walk through a greenfield bootstrap:
    [`walk-through/walkthrough.md`](walk-through/walkthrough.md)
-2. Read the framework index:
+3. Read the framework index:
    [`docs/tessallite-pattern/_INDEX.md`](docs/tessallite-pattern/_INDEX.md)
-3. Read the handbook:
+4. Read the handbook:
    [`docs/tessallite-pattern/framework-handbook.md`](docs/tessallite-pattern/framework-handbook.md)
-4. Use the lifecycle guide for real delivery:
+5. Use the lifecycle guide for real delivery:
    [`docs/tessallite-pattern/lifecycle-guide.md`](docs/tessallite-pattern/lifecycle-guide.md)
-5. Copy the templates you need from:
+6. Copy the templates you need from:
    [`docs/tessallite-pattern/templates/`](docs/tessallite-pattern/templates/)
-6. Run the documentation index guard when you adopt the tiered docs structure:
+7. Run the documentation index guard when you adopt the tiered docs structure:
    `bash scripts/check-docs-index.sh`
 
-Short path:
+Bootstrap paths:
 
-- New project:
-  [`greenfield walkthrough`](walk-through/walkthrough.md), then
+- Fast scripted bootstrap:
+  [`bootstrap-user-journey.md`](docs/tessallite-pattern/bootstrap-user-journey.md#path-a-fast-scripted-bootstrap)
+- Guided manual walkthrough:
+  [`walk-through/walkthrough.md`](walk-through/walkthrough.md)
+- Manual prompt bootstrap:
   [`bootstrap-greenfield-project-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-greenfield-project-prompt.md)
-- Existing codebase:
+  or
   [`bootstrap-existing-codebase-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-existing-codebase-prompt.md)
 
 ## Core Idea
@@ -161,6 +166,8 @@ screenshots.
 ## Contents
 
 - `framework-handbook.md`: the full operating model
+- `bootstrap-user-journey.md`: consistent scripted, guided, and manual
+  bootstrap paths
 - `lifecycle-guide.md`: end-to-end feature workflow
 - `adoption-roadmap.md`: how to introduce the pattern gradually
 - `governance-model.md`: ownership, gates, artefact rules, and failure modes
@@ -173,6 +180,8 @@ screenshots.
 - `training/`: workshop material and exercises
 - `illustrations/`: brand-aligned visuals for docs, slides, and articles
 - `walk-through/`: greenfield bootstrap walkthrough and screenshot sequence
+- `scripts/bootstrap-tessallite-pattern.sh`: macOS/Linux project bootstrapper
+- `scripts/bootstrap-tessallite-pattern.bat`: Windows project bootstrapper
 - `scripts/check-docs-index.sh`: lightweight index consistency guard
 
 ## Repository Map
@@ -186,11 +195,14 @@ screenshots.
 | [`docs/execution/`](docs/execution/) | Operational issue registry and delivery tracking. |
 | [`docs/guides/`](docs/guides/) | Maintainer and developer guides for this repository. |
 | [`docs/tessallite-pattern/`](docs/tessallite-pattern/) | Framework handbook, lifecycle, governance, adoption, templates, prompts, examples, and training. |
+| [`docs/tessallite-pattern/bootstrap-user-journey.md`](docs/tessallite-pattern/bootstrap-user-journey.md) | Canonical scripted, guided, and manual bootstrap journey. |
 | [`docs/archive/`](docs/archive/) | Superseded or historical documentation retained for traceability. |
 | [`illustrations/`](illustrations/) | Tessallite-branded visual assets. |
 | [`walk-through/walkthrough.md`](walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough. |
 | [`work/logs/project-journal.md`](work/logs/project-journal.md) | Session continuity journal for significant repository maintenance. |
 | [`work/sessions/`](work/sessions/) | Handoff notes for long-running or significant sessions. |
+| [`scripts/bootstrap-tessallite-pattern.sh`](scripts/bootstrap-tessallite-pattern.sh) | macOS/Linux script that bootstraps the Tessallite Pattern into a target project. |
+| [`scripts/bootstrap-tessallite-pattern.bat`](scripts/bootstrap-tessallite-pattern.bat) | Windows batch launcher that bootstraps the same structure through PowerShell. |
 | [`scripts/check-docs-index.sh`](scripts/check-docs-index.sh) | Documentation index consistency guard. |
 
 ## Use It On A Project

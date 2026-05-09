@@ -7,6 +7,11 @@ Use this file to run the Tessallite Pattern prompts in the right order. The
 prompt folder is not a menu of independent prompts. It is an operating sequence
 that follows the lifecycle and gate model.
 
+For the first setup decision, start with
+[bootstrap-user-journey.md](../bootstrap-user-journey.md). The bootstrap
+scripts, walkthrough, and manual prompts are alternatives for initial setup, not
+steps to run cumulatively.
+
 ## Quick Flow
 
 | Stage | Goal | Prompt | Output Format / Gate |

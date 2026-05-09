@@ -7,6 +7,14 @@ Use this prompt when applying the Tessallite Pattern to an existing project that
 already has source code, tests, build tools, and possibly stale or incomplete
 documentation.
 
+This is the manual prompt path. For the full choice between scripted, guided,
+and manual bootstrap, see
+[bootstrap-user-journey.md](../bootstrap-user-journey.md). If you already ran a
+bootstrap script with `--existing` or `-Existing`, use the generated
+`work/sessions/bootstrap-next-prompt.md` in the target project first, then use
+this prompt only if the assistant still needs to inspect and adapt the scaffold
+against the existing codebase.
+
 ## How To Use This File
 
 1. Open a shell in the existing project workspace and inspect the worktree before

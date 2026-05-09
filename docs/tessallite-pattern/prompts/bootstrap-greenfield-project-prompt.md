@@ -6,6 +6,12 @@ Last meaningful update: 2026-05-09
 Use this prompt when starting a new project workspace and you want the agent to
 set up the Tessallite Pattern without reading the entire framework kit first.
 
+This is the manual prompt path. For the full choice between scripted, guided,
+and manual bootstrap, see
+[bootstrap-user-journey.md](../bootstrap-user-journey.md). If you already ran a
+bootstrap script, use the generated `work/sessions/bootstrap-next-prompt.md` in
+the target project instead of asking the assistant to recreate the scaffold.
+
 ## How To Use This File
 
 1. Create or open the target project directory in your normal shell.

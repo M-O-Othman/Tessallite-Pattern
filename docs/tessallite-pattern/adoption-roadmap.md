@@ -15,9 +15,10 @@ catch the failures you are already experiencing.
 For the full prompt set, use [prompts/_INDEX.md](prompts/_INDEX.md). The roadmap
 names prompt categories, while the prompt index is the canonical inventory.
 
-For a practical first adoption session, use the
-[greenfield walkthrough](../../walk-through/walkthrough.md). It demonstrates the
-minimum project setup before any application code is written.
+For a practical first adoption session, use
+[bootstrap-user-journey.md](bootstrap-user-journey.md). It explains when to run
+the scripts, when to follow the walkthrough, and when to use the manual
+bootstrap prompts.
 
 When a project already has assistant memories, command wrappers, help-system
 rules, UI standards, deployment scripts, or repeated review feedback, also use

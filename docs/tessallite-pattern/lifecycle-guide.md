@@ -24,9 +24,9 @@ For executable prompts that map to these stages, use
 [prompts/_INDEX.md](prompts/_INDEX.md) as the prompt inventory and
 orchestration guide.
 
-For a concrete first-session setup example, use the
-[greenfield walkthrough](../../walk-through/walkthrough.md) before starting the
-requirements stage.
+Before starting the requirements stage, complete one bootstrap path from
+[bootstrap-user-journey.md](bootstrap-user-journey.md). The fast script, guided
+walkthrough, and manual prompts are alternatives, not cumulative steps.
 
 Before feature work begins, install any project-specific skills and command
 rules with
