@@ -28,6 +28,7 @@ a deliberate replacement.
 | [lifecycle-guide.md](lifecycle-guide.md) | End-to-end feature delivery lifecycle from high-level requirements through session close. |
 | [adoption-roadmap.md](adoption-roadmap.md) | Practical rollout plan for teams adopting the pattern gradually. |
 | [governance-model.md](governance-model.md) | Rules for ownership, documentation status, gate enforcement, issue registries, and exceptions. |
+| [issue-registry.md](issue-registry.md) | Kit-level documentation, governance, and process issues found while maintaining the pattern. |
 | [comparison.md](comparison.md) | Comparison against other LLM coding framework categories and when this pattern is worth the overhead. |
 | [origin.md](origin.md) | Discovery story showing how the pattern emerged from concrete failures while building Tessallite. |
 
@@ -58,7 +59,7 @@ a deliberate replacement.
 
 | File | Purpose |
 | --- | --- |
-| [prompts/_INDEX.md](prompts/_INDEX.md) | Orchestration guide mapping prompts to lifecycle stages and gates. |
+| [prompts/_INDEX.md](prompts/_INDEX.md) | Nested prompt inventory and orchestration guide mapping prompts to lifecycle stages and gates. |
 | [prompts/agent-memory-instructions.md](prompts/agent-memory-instructions.md) | Shared persistent project-memory rules for agentic coding tools. |
 | [prompts/bootstrap-greenfield-project-prompt.md](prompts/bootstrap-greenfield-project-prompt.md) | Quick-start prompt for applying the Tessallite Pattern to a new empty or greenfield workspace. |
 | [prompts/bootstrap-existing-codebase-prompt.md](prompts/bootstrap-existing-codebase-prompt.md) | Quick-start prompt for retrofitting the Tessallite Pattern into an existing software codebase. |

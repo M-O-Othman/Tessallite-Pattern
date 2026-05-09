@@ -314,8 +314,8 @@ and session handout.
 ### Small Team
 
 Assign a human owner for architecture, delivery, testing, and docs. Keep the
-gate checklist mandatory. Rotate the adversarial auditor prompt through a fresh
-LLM session.
+gate checklist mandatory. Rotate the adversarial auditor prompt from
+[prompts/_INDEX.md](prompts/_INDEX.md) through a fresh LLM session.
 
 ### Larger Team
 

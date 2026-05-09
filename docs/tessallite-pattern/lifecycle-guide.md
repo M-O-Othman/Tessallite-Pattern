@@ -20,6 +20,10 @@ The canonical lifecycle has six stages:
 
 Not every change needs every stage. The lifecycle scales by risk.
 
+For executable prompts that map to these stages, use
+[prompts/_INDEX.md](prompts/_INDEX.md) as the prompt inventory and
+orchestration guide.
+
 ## Stage 1: High-Level Requirements
 
 Goal: describe the feature in business terms before implementation detail

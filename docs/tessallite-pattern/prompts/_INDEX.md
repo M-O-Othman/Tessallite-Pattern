@@ -30,6 +30,25 @@ that follows the lifecycle and gate model.
 | --- | --- |
 | [documentation-router-prompt.md](documentation-router-prompt.md) | Navigate the L0/L1/L2 documentation hierarchy before choosing working context. |
 
+## Prompt Inventory
+
+| File | Purpose |
+| --- | --- |
+| [agent-memory-instructions.md](agent-memory-instructions.md) | Persistent project-memory rules for agentic coding tools. |
+| [bootstrap-greenfield-project-prompt.md](bootstrap-greenfield-project-prompt.md) | Bootstrap a new project with the Tessallite Pattern. |
+| [bootstrap-existing-codebase-prompt.md](bootstrap-existing-codebase-prompt.md) | Retrofit the Tessallite Pattern into an existing codebase. |
+| [requirements-authoring-prompt.md](requirements-authoring-prompt.md) | Draft requirements before design begins. |
+| [open-questions-prompts.md](open-questions-prompts.md) | Run first-pass and second-pass ambiguity gates. |
+| [design-spec-authoring-prompt.md](design-spec-authoring-prompt.md) | Draft a design spec after first-pass questions are resolved. |
+| [implementation-plan-authoring-prompt.md](implementation-plan-authoring-prompt.md) | Turn an active design spec into a phased implementation plan. |
+| [phase-implementation-prompt.md](phase-implementation-prompt.md) | Implement one scoped phase without plan drift. |
+| [phase-closure-prompt.md](phase-closure-prompt.md) | Decide whether a phase can close. |
+| [adversarial-auditor-prompt.md](adversarial-auditor-prompt.md) | Review phase work from an independent auditor stance. |
+| [feature-continuation-prompt.md](feature-continuation-prompt.md) | Resume a multi-session feature safely. |
+| [session-continuity-prompts.md](session-continuity-prompts.md) | Start and close sessions with durable handoffs. |
+| [documentation-router-prompt.md](documentation-router-prompt.md) | Navigate the documentation hierarchy efficiently. |
+| [architect-guidance.md](architect-guidance.md) | Guide architect answers, deferrals, and approvals. |
+
 ## Gate Rules
 
 - Requirements must exist before first-pass open questions.

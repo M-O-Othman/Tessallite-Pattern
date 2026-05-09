@@ -12,6 +12,9 @@ where the risk justifies it.
 Do not begin by creating a large process museum. Begin by adding the gates that
 catch the failures you are already experiencing.
 
+For the full prompt set, use [prompts/_INDEX.md](prompts/_INDEX.md). The roadmap
+names prompt categories, while the prompt index is the canonical inventory.
+
 ## Level 0: Baseline
 
 Use when the project is still experimenting.
@@ -75,7 +78,7 @@ Goal: catch drift at phase boundaries.
 
 Add:
 
-- adversarial auditor prompt
+- adversarial auditor prompt from [prompts/_INDEX.md](prompts/_INDEX.md)
 - review report template
 - phase gate checklist
 - issue registry
@@ -99,8 +102,8 @@ Goal: preserve working memory across days and agents.
 Add:
 
 - session handout
-- session start prompt
-- session close prompt
+- session start prompt from [prompts/_INDEX.md](prompts/_INDEX.md)
+- session close prompt from [prompts/_INDEX.md](prompts/_INDEX.md)
 - project journal entry for significant work
 
 Minimum artefacts:
