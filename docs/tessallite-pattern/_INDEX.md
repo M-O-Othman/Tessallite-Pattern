@@ -58,6 +58,7 @@ a deliberate replacement.
 
 | File | Purpose |
 | --- | --- |
+| [prompts/agent-memory-instructions.md](prompts/agent-memory-instructions.md) | Shared persistent project-memory rules for agentic coding tools. |
 | [prompts/bootstrap-greenfield-project-prompt.md](prompts/bootstrap-greenfield-project-prompt.md) | Quick-start prompt for applying the Tessallite Pattern to a new empty or greenfield workspace. |
 | [prompts/bootstrap-existing-codebase-prompt.md](prompts/bootstrap-existing-codebase-prompt.md) | Quick-start prompt for retrofitting the Tessallite Pattern into an existing software codebase. |
 | [prompts/open-questions-prompts.md](prompts/open-questions-prompts.md) | Prompts for first-pass and second-pass uncertainty surfacing. |

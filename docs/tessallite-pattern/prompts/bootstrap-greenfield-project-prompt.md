@@ -6,6 +6,10 @@ Last meaningful update: 2026-05-09
 Use this prompt when starting a new project workspace and you want the agent to
 set up the Tessallite Pattern without reading the entire framework kit first.
 
+For persistent agent memory, keep this file next to:
+
+- [agent-memory-instructions.md](agent-memory-instructions.md)
+
 ## Copy-Paste Prompt
 
 ```text
@@ -15,23 +19,26 @@ Tessallite Pattern.
 Your job is to create the minimum useful project structure and working rules so
 future AI-assisted development is verification-first, not generation-first.
 
+Bootstrap order:
+1. Install persistent project memory.
+2. Create the minimum documentation and log structure.
+3. Ask the initial product questions.
+4. Stop before writing application code.
+
+Persistent project memory:
+- Read the adjacent file `agent-memory-instructions.md`.
+- Copy its contents into the target project's persistent agent-memory file.
+- Use `AGENTS.md` by default.
+- If this project already uses another memory file, preserve it and add a
+  clearly marked Tessallite Pattern section there instead.
+- Do not duplicate the same rules into many files unless I ask for that.
+
 Core principle:
 - The bottleneck is verification, not generation.
 - Do not start coding until ambiguity is surfaced and the first delivery path is
   clear.
 
-Use these four structural elements:
-1. Two-level open-questions gate.
-2. Mandatory adversarial review at every non-trivial phase boundary.
-3. Session continuity infrastructure.
-4. Tiered documentation governance with CI enforcement.
-
-Set up this documentation structure:
-- AGENTS.md
-- CLAUDE.md (if Claude Code is used)
-- .codex/instructions.md (if Codex project instructions are used)
-- .cursorrules (if Cursor is used)
-- .github/copilot-instructions.md (if GitHub Copilot is used)
+Set up this minimum documentation structure:
 - docs/_INDEX.md
 - docs/architecture/_INDEX.md
 - docs/questions/_INDEX.md
@@ -40,91 +47,15 @@ Set up this documentation structure:
 - docs/strategy/_INDEX.md
 - docs/archive/_INDEX.md
 - work/sessions/
+- work/logs/
 - scripts/check-docs-index.sh
-
-Create project memory / standing instruction files before feature work:
-
-1. Create `AGENTS.md` at the repository root.
-2. If the project uses Claude Code, mirror the same rules into `CLAUDE.md`.
-3. If the project uses Codex project instructions, mirror the same rules into
-   `.codex/instructions.md`.
-4. If the project uses Cursor, mirror the same rules into `.cursorrules`.
-5. If the project uses GitHub Copilot, mirror the same rules into
-   `.github/copilot-instructions.md`.
-6. If another agent tool has a project-memory file, ask me where it lives, then
-   add the same rules there.
-
-The project memory file must contain these standing instructions:
-
-```
-# Tessallite Pattern Working Rules
-
-This project uses the Tessallite Pattern for AI-assisted delivery.
-
-Core rule:
-- Optimize for verification, not generation.
-- Do not treat generated code, specs, tests, or docs as correct until they pass
-  the relevant gate.
-
-Before feature implementation:
-- Read docs/_INDEX.md first unless you already know the exact document path.
-- Use docs/<domain>/_INDEX.md to find domain documents.
-- Do not bulk-load unrelated docs.
-- Produce requirements before design.
-- Run a first open-questions pass after requirements.
-- Do not proceed to design while required questions are pending.
-- Run a second open-questions pass after detailed design and before planning.
-- Do not create an implementation plan while required design-level questions
-  are pending.
-
-During implementation:
-- Work one phase at a time.
-- Implement only the scoped phase.
-- Add or update tests for the risk introduced.
-- Update documentation when behavior, contracts, setup, or architecture changes.
-- Log unresolved bugs, risks, missing wiring, or review findings in
-  docs/execution/execution_issue-registry.md.
-- Do not silently skip planned tasks; mark them completed, deferred, replaced,
-  or skipped with reason.
-
-Phase closure:
-- A non-trivial phase requires adversarial review before closure.
-- The reviewer must be independent of the writing context where possible.
-- The review must check spec drift, wiring, tests, docs, known issues, and
-  unverifiable assumptions.
-- Findings must be fixed, accepted by the architect, or logged before the phase
-  closes.
-
-Documentation governance:
-- docs/_INDEX.md is the L0 router and lists documentation domains.
-- docs/<domain>/_INDEX.md is the L1 router and lists active files in that
-  domain.
-- Durable docs must include title, Status, Last meaningful update, and a short
-  summary where useful.
-- When creating a doc, add it to the relevant L1 index immediately.
-- Run scripts/check-docs-index.sh before committing documentation changes.
-
-Session continuity:
-- At session start, read the latest relevant handout in work/sessions/ and the
-  latest relevant release-history entries.
-- At session end, create work/sessions/<date>.md with goal, completed work,
-  failed attempts, current state, blockers, next steps, and key files.
-- Append docs/execution/execution_release-history.md after significant work,
-  discoveries, or course changes.
-
-Architect authority:
-- The architect answers ambiguity and approves gate closure.
-- If required information is missing, ask questions instead of guessing.
-- If a gate must be bypassed, record the exception, reason, approver, follow-up,
-  and review date.
-```
 
 Create starter documents:
 - docs/architecture/architecture_project-overview.md
 - docs/questions/questions_initial-project.md
 - docs/execution/execution_issue-registry.md
-- docs/execution/execution_release-history.md
 - docs/guides/guides_developer-guide.md
+- work/logs/project-journal.md
 
 Use these status values:
 - draft
@@ -141,28 +72,13 @@ Every durable document must start with:
 - Last meaningful update
 - short summary when useful
 
-Before implementation planning, produce:
-1. A short requirements summary.
-2. A first-pass open-questions file.
-3. A proposed architecture/design spec only after questions are answered.
-4. A second-pass open-questions section after the design draft.
-5. A phased implementation plan only after the second-pass questions are closed
-   or explicitly deferred.
-
-For any implementation phase:
-- implement only the scoped phase
-- add or update tests
-- update documentation if behavior changes
-- run verification commands
-- run or prepare an adversarial review report
-- log unresolved findings in the issue registry
-- close the phase only when evidence supports closure
-
-At session end:
-- create a session handout under work/sessions/<date>.md
-- record what was done, what failed, current state, blockers, next steps, and
-  key files
-- append release history for significant work
+Before implementation planning:
+1. Produce a short requirements summary.
+2. Run a first open-questions pass.
+3. Draft architecture/design only after required questions are answered.
+4. Run a second open-questions pass after the design draft.
+5. Create a phased implementation plan only after required second-pass
+   questions are closed or explicitly deferred.
 
 First task:
 Ask me only the minimum questions needed to define the greenfield project:
@@ -174,9 +90,8 @@ Ask me only the minimum questions needed to define the greenfield project:
 - non-goals
 - initial delivery milestone
 
-Do not write application code yet. Bootstrap the project discipline first.
-Make the project memory / standing instruction file first, then create the docs
-structure and initial open questions.
+Do not write application code yet. Install project memory first, then bootstrap
+the documentation structure and initial open questions.
 ```
 
 ## When To Use
@@ -193,7 +108,8 @@ Use this prompt when:
 The agent should produce:
 
 - a short orientation
-- project memory / standing instructions
+- persistent project memory location and contents installed
+- created documentation and log paths
 - initial project questions
 - proposed docs structure
 - no application code
