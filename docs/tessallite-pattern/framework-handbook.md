@@ -3,10 +3,11 @@
 Status: active
 Last meaningful update: 2026-05-09
 
-This handbook turns the Tessallite Pattern article into an operating framework
-for AI-assisted software delivery. It is written for architects, technical
-leads, solo builders, and teams using LLMs on systems where mistakes compound
-across many files, contracts, and sessions.
+This handbook turns the source article,
+[`tessallite-pattern.md`](../../tessallite-pattern.md), into an operating
+framework for AI-assisted software delivery. It is written for architects,
+technical leads, solo builders, and teams using LLMs on systems where mistakes
+compound across many files, contracts, and sessions.
 
 ## 1. Executive Summary
 
@@ -182,9 +183,12 @@ Release history captures the arc:
 
 The handout is operational state. The journal is reasoning history.
 
-### 5.4 Tiered Documentation Governance
+### 5.4 Tiered Documentation Governance For Trustworthy Context
 
-The docs structure acts like a cache hierarchy.
+The docs structure acts like a cache hierarchy. The mechanism is tiered
+documentation governance with CI enforcement. The goal is trustworthy context:
+future LLM sessions should retrieve current, routed, and reviewed docs rather
+than stale assumptions.
 
 L0:
 
@@ -206,7 +210,8 @@ L2:
 - starts with a short summary, status, and last meaningful update
 
 The CI guard checks that L2 files are listed in the L1 index. This turns
-documentation hygiene from a preference into a contract.
+documentation hygiene from a preference into a contract and protects the
+documentation cache from silent decay.
 
 ## 6. Artefact Map
 
@@ -351,4 +356,3 @@ Name your gates. Run your gates. Keep documentation trustworthy. Make ambiguity
 visible before code exists. Make implementation prove itself after each phase.
 Treat session memory as an artefact. Do not let generated confidence substitute
 for verification.
-

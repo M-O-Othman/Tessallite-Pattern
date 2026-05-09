@@ -9,7 +9,9 @@ exceptions.
 
 ## Governance Objective
 
-The governance model exists to protect one property: trustworthy context.
+The governance model exists to protect one property: trustworthy context. The
+mechanism is tiered documentation governance with CI enforcement; the reason is
+that future LLM sessions will treat project documentation as a working cache.
 
 If the artefacts are current, routed, and reviewed, the LLM has a reliable
 working cache. If the artefacts drift, the model will retrieve old assumptions
@@ -266,4 +268,3 @@ Ask these regularly:
 - Are indexes useful, or just decorative?
 - Does the release history explain why the project changed course?
 - Can the architect defend the latest spec against the latest code?
-

@@ -236,7 +236,7 @@ Before ending a meaningful session:
 
 Output:
 
-- session handout
+- session handout at `work/sessions/<date>.md`
 - release history entry
 
 Gate:
@@ -320,4 +320,3 @@ Unhealthy:
 - docs are updated only after release
 - handouts say "continue work" without exact next steps
 - active indexes point to stale or archived files
-

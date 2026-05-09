@@ -28,6 +28,8 @@ a deliberate replacement.
 | [lifecycle-guide.md](lifecycle-guide.md) | End-to-end feature delivery lifecycle from high-level requirements through session close. |
 | [adoption-roadmap.md](adoption-roadmap.md) | Practical rollout plan for teams adopting the pattern gradually. |
 | [governance-model.md](governance-model.md) | Rules for ownership, documentation status, gate enforcement, issue registries, and exceptions. |
+| [comparison.md](comparison.md) | Comparison against other LLM coding framework categories and when this pattern is worth the overhead. |
+| [origin.md](origin.md) | Discovery story showing how the pattern emerged from concrete failures while building Tessallite. |
 
 ## Templates
 
@@ -73,4 +75,3 @@ a deliberate replacement.
 | --- | --- |
 | [training/workshop-facilitator-guide.md](training/workshop-facilitator-guide.md) | A half-day workshop plan for teaching the pattern. |
 | [training/exercises.md](training/exercises.md) | Hands-on exercises for architects, developers, and auditors. |
-
