@@ -131,10 +131,7 @@ catch the places where LLM-assisted delivery tends to go wrong at scale.
 
 ## Why The Repo Is More Clinical Than The Article
 
-The source article is a field report. It explains the frustration, comparison,
-and sequence of failures that led to the pattern.
-
-This repository is a kit. It gives teams artefacts they can use without
+The source article https://www.linkedin.com/pulse/tessallite-pattern-mohammed-othman-ln1ve/ is a field report.the repository is a kit. It gives teams artefacts they can use without
 re-reading the whole argument every time.
 
 Both are needed:
