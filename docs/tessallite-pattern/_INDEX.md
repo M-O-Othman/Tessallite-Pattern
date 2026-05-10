@@ -98,6 +98,9 @@ without mixing the paths.
 | File | Purpose |
 | --- | --- |
 | [examples/worked-feature-example.md](examples/worked-feature-example.md) | A sample feature moving through requirements, questions, spec, plan, review, and session close. |
+| [examples/claude-code-setup-example.md](examples/claude-code-setup-example.md) | Complete CLAUDE.md with Tessallite rules and review bridge workflow. |
+| [examples/codex-setup-example.md](examples/codex-setup-example.md) | Complete .codex/config.toml with reviewer instructions and MCP config. |
+| [examples/mcp-config-example.md](examples/mcp-config-example.md) | Complete .mcp.json for connecting Claude Code to the review bridge. |
 | [walk-through/walkthrough.md](../../walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough with terminal screenshots. Repository-level asset, not part of the portable kit. |
 
 ## Bootstrap Scripts
