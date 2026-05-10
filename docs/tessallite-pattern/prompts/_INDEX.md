@@ -54,6 +54,7 @@ steps to run cumulatively.
 | [session-continuity-prompts.md](session-continuity-prompts.md) | Start and close sessions with durable handoffs. |
 | [documentation-router-prompt.md](documentation-router-prompt.md) | Navigate the documentation hierarchy efficiently. |
 | [architect-guidance.md](architect-guidance.md) | Guide architect answers, deferrals, and approvals. |
+ [cross-agent-review-prompts.md](cross-agent-review-prompts.md) - Prompt templates for cross-agent code review using the Review Bridge MCP server
 
 ## Gate Rules
 
@@ -75,3 +76,4 @@ For a quick start, use:
    - [bootstrap-greenfield-project-prompt.md](bootstrap-greenfield-project-prompt.md)
    - [bootstrap-existing-codebase-prompt.md](bootstrap-existing-codebase-prompt.md)
 4. This orchestration guide.
+

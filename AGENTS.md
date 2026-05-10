@@ -125,3 +125,29 @@ When working in an existing codebase:
 - The architect answers ambiguity and approves gate closure.
 - If a gate must be bypassed, record the exception, reason, approver,
   follow-up, and review date.
+
+
+## Cross-Agent Review Bridge
+
+When the review-bridge MCP server is connected (check with /mcp), use these tools
+for cross-agent code review:
+
+- bridge_get_plan: Read the execution plan before reviewing
+- bridge_submit_review: Submit review findings with severity counts
+- bridge_get_review: Read the latest approved review
+- bridge_approve_round: Approve a review for the implementer to act on
+- bridge_submit_fixes: Report fixes applied, skipped, and remaining
+- bridge_status: Check current round, history, and severity trends
+- bridge_stop: End the review cycle
+
+Reviewer agent constraints:
+- Write ONLY to work/external-review/
+- Do NOT modify source code, tests, or config
+
+Implementer agent constraints:
+- Validate each finding before acting
+- Fix root cause across all affected files
+- Run full test suite before submitting fixes
+
+Prompt templates: docs/tessallite-pattern/prompts/cross-agent-review-prompts.md
+Report template: docs/tessallite-pattern/templates/external-review-report-template.md
