@@ -1,11 +1,11 @@
 # Tessallite Pattern Framework Kit
 
-![Tessallite Pattern overview](illustrations/generated-text/verification-first-framework.png)
+![Tessallite Pattern overview](illustrations/title-page.png)
 
 This repository contains a practical framework kit derived from
 [`tessallite-pattern.md`](tessallite-pattern.md).
 
-The original article https://www.linkedin.com/pulse/tessallite-pattern-mohammed-othman-ln1ve/ explains why many LLM coding frameworks fail at scale:
+The [original article](https://www.linkedin.com/pulse/tessallite-pattern-mohammed-othman-ln1ve/) explains why many LLM coding frameworks fail at scale:
 they optimize generation while under-investing in verification. This kit turns
 that argument into reusable materials, artefacts, templates, prompts,
 checklists, examples, illustrations, and a lightweight documentation governance
@@ -61,16 +61,6 @@ points where LLM-assisted work most often becomes unverifiable.
 7. Run the documentation index guard when you adopt the tiered docs structure:
    `bash scripts/check-docs-index.sh`
 
-Bootstrap paths:
-
-- Fast scripted bootstrap:
-  [`bootstrap-user-journey.md`](docs/tessallite-pattern/bootstrap-user-journey.md#path-a-fast-scripted-bootstrap)
-- Guided manual walkthrough:
-  [`walk-through/walkthrough.md`](walk-through/walkthrough.md)
-- Manual prompt bootstrap:
-  [`bootstrap-greenfield-project-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-greenfield-project-prompt.md)
-  or
-  [`bootstrap-existing-codebase-prompt.md`](docs/tessallite-pattern/prompts/bootstrap-existing-codebase-prompt.md)
 
 ## Core Idea
 
@@ -180,6 +170,8 @@ screenshots.
 - `prompts/`: reusable prompts for LLM-assisted work
 - `examples/`: worked example of a feature moving through the pattern
 - `training/`: workshop material and exercises
+- `tools/review-bridge/`: MCP server for cross-agent code review between Claude Code and Codex
+- `docs/tessallite-pattern/guides/cross-agent-review-workflow.md`: process flow for running automated review cycles between two AI agents
 - `illustrations/`: brand-aligned visuals for docs, slides, and articles
 - `walk-through/`: greenfield bootstrap walkthrough and screenshot sequence
 - `scripts/bootstrap-tessallite-pattern.sh`: macOS/Linux project bootstrapper
@@ -198,6 +190,7 @@ screenshots.
 | [`docs/guides/`](docs/guides/) | Maintainer and developer guides for this repository. |
 | [`docs/strategy/`](docs/strategy/) | Strategy domain (demonstrates completeness; target projects add their own docs here). |
 | [`docs/tessallite-pattern/`](docs/tessallite-pattern/) | Framework handbook, lifecycle, governance, adoption, templates, prompts, examples, and training. |
+| [`tools/review-bridge/`](tools/review-bridge/) | MCP server for cross-agent code review between Claude Code and Codex. |
 | [`docs/tessallite-pattern/bootstrap-user-journey.md`](docs/tessallite-pattern/bootstrap-user-journey.md) | Canonical scripted, guided, and manual bootstrap journey. |
 | [`docs/archive/`](docs/archive/) | Superseded or historical documentation retained for traceability. |
 | [`illustrations/`](illustrations/) | Tessallite-branded visual assets. |
