@@ -105,67 +105,128 @@ append_memory_if_needed() {
   fi
 
   mkdir -p "$(dirname "$path")"
-  if [[ -f "$path" ]]; then
-    cat >> "$path" <<'EOF'
+  cat >> "$path" <<'EOF'
 
 ---
 
 EOF
-  fi
 
-  cat >> "$path" <<EOF
+  cat >> "$path" <<'AGENTEOF'
 # Tessallite Pattern Working Rules
 
 Status: active
-Last meaningful update: $TODAY
+Last meaningful update: __DATE__
 
 This project uses the Tessallite Pattern for AI-assisted delivery.
 
 ## Core Rule
 
 - Optimize for verification, not generation.
-- Do not treat generated code, specs, tests, or docs as correct until they pass the relevant gate.
+- Do not treat generated code, specs, tests, or docs as correct until they pass
+  the relevant gate.
 - If required information is missing, ask questions instead of guessing.
 
 ## Project Feedback Rules
 
-- Convert tool-specific memories into assistant-neutral project rules.
-- Keep short behavioral rules here.
-- Keep long references, command recipes, credentials policy, and tool setup in indexed docs.
-- Do not copy permission bypasses, model choices, plugin lists, local home-directory paths, or automatic publishing settings into project rules unless the architect explicitly approves them.
-- When feedback rules conflict, prefer safety, verification, and explicit user approval over convenience automation.
+- During bootstrap, ask whether project-specific feedback rules, tool-specific
+  memories, or reference pointers already exist.
+- Convert tool-specific wording into assistant-neutral project rules that any
+  coding assistant can follow.
+- Keep short behavioral rules in this persistent memory file.
+- Keep long references, API details, credentials, and command recipes in indexed
+  docs, then link to them from memory.
+- Use `docs/tessallite-pattern/prompts/project-feedback-rules.md` as the
+  generic conversion guide when bootstrapping from an existing memory pack.
+- Project-specific feedback rules may override default artefact placement only
+  when the verification gate is preserved and the architect approves the
+  convention.
+- Do not copy tool-specific permission bypasses, model choices, plugin lists,
+  local home-directory paths, or automatic publishing settings into project
+  rules unless the architect explicitly wants them documented as local setup.
+- When feedback rules conflict, prefer safety, verification, and explicit user
+  approval over convenience automation.
 
 ## Documentation Routing
 
-- Read docs/_INDEX.md first unless the exact document path is known.
-- Use docs/<domain>/_INDEX.md to find domain documents.
-- Treat active docs as current working truth, draft docs as provisional, and archived docs as historical.
+- Read `docs/_INDEX.md` first unless you already know the exact document path.
+- Use `docs/<domain>/_INDEX.md` to find domain documents.
+- Do not bulk-load unrelated docs.
+- Treat active docs as current working truth.
+- Treat draft docs as provisional.
+- Treat archived, superseded, or duplicate docs as historical unless the task
+  explicitly asks for history.
 
-## Delivery Gates
+## Before Feature Implementation
 
-- Requirements before design.
-- First open-questions pass before design.
-- Design spec before second open-questions pass.
-- Second open-questions pass before implementation planning.
-- Phase implementation before adversarial review.
-- Phase closure only after findings are fixed, accepted, or logged.
+- Produce requirements before design.
+- Run a first open-questions pass after requirements.
+- Do not proceed to design while required questions are pending.
+- Run a second open-questions pass after detailed design and before planning.
+- Do not create an implementation plan while required design-level questions are
+  pending.
+
+## Existing Codebase Adoption
+
+When working in an existing codebase:
+
+- Inspect current git status before editing.
+- Preserve unrelated user changes.
+- Existing code is the current source of behavior until documentation is
+  verified against it.
+- Prefer existing codebase patterns, frameworks, and helper APIs.
+- Identify stale or missing documentation before relying on it.
 
 ## Implementation
 
 - Work one phase at a time.
-- Preserve unrelated user changes.
-- Prefer existing codebase patterns.
+- Implement only the scoped phase.
 - Add or update tests for the risk introduced.
-- Use commands from docs/execution/execution_command-registry.md.
-- Log unresolved bugs, risks, missing wiring, and review findings in docs/execution/execution_issue-registry.md.
-- Do not introduce new libraries, frameworks, packages, services, or tools without architect approval.
+- Run the smallest relevant verification command first, then broaden if risk
+  requires it.
+- Update documentation when behavior, contracts, setup, or architecture changes.
+- Log unresolved bugs, risks, missing wiring, or review findings in
+  `docs/execution/execution_issue-registry.md`.
+- Do not silently skip planned tasks; mark them completed, deferred, replaced,
+  or skipped with reason.
+
+## Phase Closure
+
+- A non-trivial phase requires adversarial review before closure.
+- The reviewer must be independent of the writing context where possible.
+- The review must check spec drift, wiring, tests, docs, known issues, and
+  unverifiable assumptions.
+- Findings must be fixed, accepted by the architect, or logged before the phase
+  closes.
+
+## Documentation Governance
+
+- `docs/_INDEX.md` is the L0 router and lists documentation domains.
+- `docs/<domain>/_INDEX.md` is the L1 router and lists active files in that
+  domain.
+- Durable docs must include title, Status, Last meaningful update, and a short
+  summary where useful.
+- When creating a doc, add it to the relevant L1 index immediately.
+- When creating a doc inside a nested folder that has its own `_INDEX.md`,
+  update both the domain L1 index and the nested index.
+- Run `scripts/check-docs-index.sh` before committing documentation changes.
 
 ## Session Continuity
 
-- At session start, read the latest relevant handout in work/sessions/ when needed.
-- At session end or explicit handout request, create work/sessions/<date>.md.
-- Append work/logs/project-journal.md after significant work, discoveries, or course changes.
-EOF
+- At session start, read the latest relevant handout in `work/sessions/` and
+  the latest relevant project journal entries in `work/logs/project-journal.md`
+  when they exist.
+- At session end, create `work/sessions/<date>.md` with goal, completed work,
+  failed attempts, current state, blockers, next steps, and key files.
+- Append `work/logs/project-journal.md` after significant work, discoveries, or
+  course changes.
+
+## Architect Authority
+
+- The architect answers ambiguity and approves gate closure.
+- If a gate must be bypassed, record the exception, reason, approver,
+  follow-up, and review date.
+AGENTEOF
+  sed -i "s/__DATE__/$TODAY/" "$path"
   echo "write AGENTS.md"
   WRITTEN=$((WRITTEN + 1))
 }
@@ -229,16 +290,16 @@ technical boundaries for $PROJECT_NAME.
 
 | File | Purpose | Status |
 | --- | --- | --- |
-| [architecture_project-overview.md](architecture_project-overview.md) | Starter system map and architecture orientation. | draft |
+| [architecture_system-map.md](architecture_system-map.md) | Starter system map and architecture orientation. | draft |
 
 ## Routing Notes
 
-- Start with architecture_project-overview.md when orienting a new assistant.
+- Start with architecture_system-map.md when orienting a new assistant.
 - Add design specs and architecture decisions here as the project evolves.
 EOF
 
-write_file "docs/architecture/architecture_project-overview.md" <<EOF
-# Project Overview
+write_file "docs/architecture/architecture_system-map.md" <<EOF
+# System Map
 
 Status: draft
 Last meaningful update: $TODAY
@@ -332,6 +393,7 @@ These questions define the first safe delivery path for $PROJECT_NAME.
 | Q1-004 | What workflows are explicitly out of scope? | Keeps the plan reviewable. | Architect | Pending. | pending |
 | Q1-005 | What stack, deployment target, and external systems are fixed constraints? | Prevents assistants from introducing new technology by default. | Architect | Pending. | pending |
 | Q1-006 | What commands are approved for tests, build, generated assets, and deploy? | Prevents unsafe or wrong command execution. | Architect | Pending. | pending |
+| Q1-007 | What is the initial delivery milestone? | Defines the first verifiable checkpoint for the project. | Architect | Pending. | pending |
 
 ## Closure Rule
 
@@ -412,6 +474,13 @@ these commands instead of inventing bare commands.
 | Screenshots | \`<command>\` | \`<path>\` | Use the shared screenshot helper if one exists. |
 | Help build | \`<command>\` | \`<path>\` | Register new pages in the help index and navigation chain. |
 
+## Data And Smoke Checks
+
+| Purpose | Command | Environment | Notes |
+| --- | --- | --- | --- |
+| Seed/reset demo data | \`<command>\` | \`<environment>\` | Use only safe demo or local environments. |
+| Smoke test | \`<command>\` | \`<environment>\` | Fill in. |
+
 ## Deploy And Publish Wrappers
 
 | Purpose | Approved Command | Commands Not To Run Bare | Notes |
@@ -446,7 +515,7 @@ $MODE
 
 ## Next Actions
 
-1. Fill docs/architecture/architecture_project-overview.md.
+1. Fill docs/architecture/architecture_system-map.md.
 2. Answer docs/questions/questions_initial-project.md.
 3. Fill docs/execution/execution_command-registry.md with real commands.
 4. Add project-specific feedback rules to AGENTS.md or docs/guides/guides_project-feedback-rules.md.
@@ -613,7 +682,7 @@ Last meaningful update: $TODAY
 Paste this into a coding assistant after bootstrap:
 
 \`\`\`text
-Read AGENTS.md, docs/_INDEX.md, docs/architecture/architecture_project-overview.md,
+Read AGENTS.md, docs/_INDEX.md, docs/architecture/architecture_system-map.md,
 docs/questions/questions_initial-project.md, and
 docs/execution/execution_command-registry.md.
 

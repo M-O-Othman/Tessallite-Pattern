@@ -1,7 +1,7 @@
 # Guides Index
 
 Status: active
-Last meaningful update: 2026-05-09
+Last meaningful update: 2026-05-10
 
 This domain contains maintainer-facing guides for working in this repository.
 
@@ -10,7 +10,6 @@ This domain contains maintainer-facing guides for working in this repository.
 | File | Purpose | Status |
 | --- | --- | --- |
 | [guides_developer-guide.md](guides_developer-guide.md) | Developer and maintainer guide for editing, verifying, and regenerating repository artefacts. | active |
-| [cross-agent-review-prompts.md](cross-agent-review-prompts.md) | Prompt templates for cross-agent code review using the Review Bridge MCP server. | active |
 
 ## Routing Notes
 

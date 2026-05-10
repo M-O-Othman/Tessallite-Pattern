@@ -1,6 +1,6 @@
 # Bootstrap Consistency Open Questions
 
-Status: pending
+Status: active
 Last meaningful update: 2026-05-10
 
 These questions must be answered before the consistency fix plan can be executed.
@@ -21,35 +21,28 @@ They affect which files, names, and content sections become the canonical standa
 ## Closure Rule
 
 Do not start fixing files until Q-BC-001 through Q-BC-007 are answered or deferred with a chosen default.
-## Archietct Answers
-Here are my recommendations:
 
-Q-BC-001: Option A. Full form everywhere. The short form creates a false economy. Users who start with the script and later discover they're missing gates will blame the pattern, not the install path. One rule set, one experience.
+## Architect Answers (2026-05-10)
 
-Q-BC-002: Option C. Same name for both modes: `architecture_system-map.md`. The content differs between greenfield and existing, but the file name should be stable. "System map" is more accurate than "project overview" for what the file contains (components, boundaries, data flows). Mode-dependent naming creates confusion when someone switches modes or reads docs written for the other path.
+Q-BC-001: Option A. Full form everywhere. The short form creates a false economy.
+One rule set, one experience.
 
-Q-BC-003: Option B. Same file name for both. Use `questions_initial-project.md`. Whether you're starting fresh or retrofitting, the first questions file serves the same purpose: surface unknowns before planning. "Adoption" is too narrow; it implies the questions are about adopting the pattern rather than about the project itself.
+Q-BC-002: Option C. Same name for both modes: `architecture_system-map.md`.
+"System map" is more accurate than "project overview" for what the file
+contains.
 
-Q-BC-004: Option B. Move to `docs/tessallite-pattern/guides/cross-agent-review-workflow.md`. Not under prompts (it's a workflow guide, not a raw prompt). Not under `docs/guides/` (that's for project-specific guides, not pattern kit guides). Fix the AGENTS.md reference to point there.
+Q-BC-003: Option B. Same file name for both: `questions_initial-project.md`.
+"Adoption" is too narrow; the first questions file serves the same purpose
+regardless of mode.
 
-Q-BC-005: Option A. Rename to `_INDEX.md`, list all templates. Every other domain has a proper index. The templates subdirectory has 11 files and deserves its own navigable index. Removing it pushes clutter into the parent.
+Q-BC-004: Option B. Move to `docs/tessallite-pattern/guides/cross-agent-review-workflow.md`.
+Not under prompts (it's a workflow guide, not a raw prompt). Not under
+`docs/guides/` (that's for project-specific guides, not pattern kit guides).
 
-Q-BC-006: Option C. Remove it. It was a one-time patch artifact from our session. The source files are already in `tools/review-bridge/src/`. The tarball serves no ongoing purpose.
+Q-BC-005: Option A. Rename to `_INDEX.md`, list all templates.
 
-Q-BC-007: Option A. Add strategy domain to both modes. Strategy documents (competitive positioning, roadmap rationale, build-vs-buy decisions) are as relevant when retrofitting as when starting fresh. Omitting it from existing mode implies existing projects don't need strategic documentation, which is wrong.
-additional points to review :
-I can see the issues. Let me map them before proposing a plan.
+Q-BC-006: Option C. Remove. It was a one-time patch artifact.
 
-Problems I can identify from the listing:
+Q-BC-007: Option A. Add strategy domain to both modes.
 
-1. The cross-agent review workflow file landed in `docs/guides/` instead of `docs/tessallite-pattern/guides/`. The pattern's own guides live under `docs/tessallite-pattern/`, but the project-level guides live under `docs/guides/`. The new file is at the wrong level.
-
-2. The old `cross-agent-review-prompts.md` you said you deleted is still showing at `docs/guides/cross-agent-review-prompts.md`, not under `docs/tessallite-pattern/prompts/` where we originally placed it. Looks like it got moved at some point or placed in the wrong spot.
-
-3. The `templates/_index.md` has a lowercase `_index.md` while every other index file is `_INDEX.md`. Inconsistent casing.
-
-4. The `docs/tessallite-pattern/_INDEX.md` references `walk-through/walkthrough.md` with a relative path going up two levels (`../../walk-through/`), mixing pattern docs with repo-root content.
-
-5. The `external-review-report-template.md` is in `templates/` but not listed in the `_INDEX.md` templates table.
-
- the Tessallite Pattern repo meant to be a standalone reusable kit that people copy into their own projects, 
+All questions resolved. Implementation proceeds.

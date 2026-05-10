@@ -161,10 +161,14 @@ indexes immediately.
 Expected starter documents:
 
 ```text
-docs/architecture/architecture_project-overview.md
+docs/architecture/architecture_system-map.md
 docs/questions/questions_initial-project.md
 docs/execution/execution_issue-registry.md
+docs/execution/execution_command-registry.md
+docs/execution/execution_bootstrap-report.md
 docs/guides/guides_developer-guide.md
+docs/guides/guides_project-feedback-rules.md
+docs/strategy/strategy_product-brief.md
 work/logs/project-journal.md
 ```
 
@@ -217,7 +221,7 @@ and stops before writing application code.
 Expected result:
 
 - `docs/questions/questions_initial-project.md` updated
-- `docs/architecture/architecture_project-overview.md` updated
+- `docs/architecture/architecture_system-map.md` updated
 - `work/logs/project-journal.md` updated
 - `scripts/check-docs-index.sh` passes
 - no application code exists yet

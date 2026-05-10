@@ -116,6 +116,7 @@ Create or adapt this minimum documentation structure:
 - docs/questions/_INDEX.md
 - docs/execution/_INDEX.md
 - docs/guides/_INDEX.md
+- docs/strategy/_INDEX.md
 - docs/archive/_INDEX.md
 - work/sessions/
 - work/logs/
@@ -127,6 +128,7 @@ What this structure is for:
 - docs/questions/: first-pass and second-pass open-question gates.
 - docs/execution/: issue registry, plans, phase work, and delivery tracking.
 - docs/guides/: setup guides, developer guides, user guides, and runbooks.
+- docs/strategy/: roadmap, positioning, and non-implementation strategy.
 - docs/archive/: superseded, duplicate, or closed documents.
 - work/sessions/: one handout per meaningful work session.
 - work/logs/project-journal.md: durable project journal for significant work,
@@ -139,9 +141,13 @@ router instead of creating duplicates.
 
 Create starter adoption documents:
 - docs/architecture/architecture_system-map.md
-- docs/questions/questions_adoption-open-questions.md
+- docs/questions/questions_initial-project.md
 - docs/execution/execution_issue-registry.md
+- docs/execution/execution_command-registry.md
+- docs/execution/execution_bootstrap-report.md
 - docs/guides/guides_developer-guide.md
+- docs/guides/guides_project-feedback-rules.md
+- docs/strategy/strategy_product-brief.md
 - work/logs/project-journal.md
 
 The system map should summarize:

@@ -149,5 +149,5 @@ Implementer agent constraints:
 - Fix root cause across all affected files
 - Run full test suite before submitting fixes
 
-Prompt templates: docs/tessallite-pattern/prompts/cross-agent-review-prompts.md
+Prompt templates: docs/tessallite-pattern/guides/cross-agent-review-workflow.md
 Report template: docs/tessallite-pattern/templates/external-review-report-template.md

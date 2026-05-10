@@ -43,3 +43,25 @@ a Windows batch launcher. These scripts carry the opening scaffold into a target
 project without relying on a specific assistant product. The shell script was
 smoke-tested against a temporary project and the generated documentation index
 guard passed.
+
+## 2026-05-10
+
+A consistency audit found that the three bootstrap paths (scripted, walkthrough,
+manual prompt) produced different file sets, different file names, different
+AGENTS.md content, and had broken cross-references. The shell and BAT scripts
+also had content parity issues in several generated files.
+
+Seven architect decisions were required. All were answered:
+
+- Full-form AGENTS.md everywhere (10 sections, not 6).
+- Same architecture file name for both modes: `architecture_system-map.md`.
+- Same questions file name for both modes: `questions_initial-project.md`.
+- Cross-agent review workflow moved to `docs/tessallite-pattern/guides/`.
+- Templates index renamed to proper casing and populated with all templates.
+- Obsolete tarball confirmed removed.
+- Strategy domain added to both modes.
+
+All four paths were reconciled against a canonical file manifest. Both scripts
+now produce 20 identical files in both modes. The docs index check passes. A
+canonical file manifest was created at
+`docs/tessallite-pattern/bootstrap-file-manifest.md` to prevent future drift.

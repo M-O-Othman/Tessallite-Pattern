@@ -51,18 +51,24 @@ scripts\bootstrap-tessallite-pattern.bat C:\path\to\project -Existing
 
 - `AGENTS.md`
 - `docs/_INDEX.md`
-- `docs/architecture/`
-- `docs/questions/`
-- `docs/execution/`
-- `docs/guides/`
-- `docs/strategy/`
-- `docs/archive/`
+- `docs/architecture/_INDEX.md`
+- `docs/architecture/architecture_system-map.md`
+- `docs/questions/_INDEX.md`
+- `docs/questions/questions_initial-project.md`
+- `docs/execution/_INDEX.md`
 - `docs/execution/execution_issue-registry.md`
 - `docs/execution/execution_command-registry.md`
+- `docs/execution/execution_bootstrap-report.md`
+- `docs/guides/_INDEX.md`
+- `docs/guides/guides_developer-guide.md`
+- `docs/guides/guides_project-feedback-rules.md`
+- `docs/strategy/_INDEX.md`
+- `docs/strategy/strategy_product-brief.md`
+- `docs/archive/_INDEX.md`
 - `work/logs/project-journal.md`
 - `work/sessions/`
-- `scripts/check-docs-index.sh`
 - `work/sessions/bootstrap-next-prompt.md`
+- `scripts/check-docs-index.sh`
 
 ### Next Step After Scripted Bootstrap
 
@@ -153,7 +159,9 @@ After any bootstrap path:
    adoption questions created for the project.
 4. Fill `docs/execution/execution_command-registry.md`.
 5. Run `bash scripts/check-docs-index.sh`.
-6. Start requirements for the first real feature.
+6. Fill `docs/architecture/architecture_system-map.md` with real entry points,
+   modules, tests, builds, deployment assumptions, and risks.
+7. Start requirements for the first real feature.
 
 ## What Not To Do
 

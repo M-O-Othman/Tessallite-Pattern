@@ -168,6 +168,8 @@ screenshots.
 - `framework-handbook.md`: the full operating model
 - `bootstrap-user-journey.md`: consistent scripted, guided, and manual
   bootstrap paths
+- `bootstrap-file-manifest.md`: canonical file list every bootstrap path must
+  produce
 - `lifecycle-guide.md`: end-to-end feature workflow
 - `adoption-roadmap.md`: how to introduce the pattern gradually
 - `governance-model.md`: ownership, gates, artefact rules, and failure modes
@@ -194,6 +196,7 @@ screenshots.
 | [`docs/questions/`](docs/questions/) | Adoption questions and unresolved repository-level decisions. |
 | [`docs/execution/`](docs/execution/) | Operational issue registry and delivery tracking. |
 | [`docs/guides/`](docs/guides/) | Maintainer and developer guides for this repository. |
+| [`docs/strategy/`](docs/strategy/) | Strategy domain (demonstrates completeness; target projects add their own docs here). |
 | [`docs/tessallite-pattern/`](docs/tessallite-pattern/) | Framework handbook, lifecycle, governance, adoption, templates, prompts, examples, and training. |
 | [`docs/tessallite-pattern/bootstrap-user-journey.md`](docs/tessallite-pattern/bootstrap-user-journey.md) | Canonical scripted, guided, and manual bootstrap journey. |
 | [`docs/archive/`](docs/archive/) | Superseded or historical documentation retained for traceability. |

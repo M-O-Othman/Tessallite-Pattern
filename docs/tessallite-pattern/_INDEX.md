@@ -1,7 +1,7 @@
 # Tessallite Pattern Index
 
 Status: active
-Last meaningful update: 2026-05-09
+Last meaningful update: 2026-05-10
 
 This domain contains the full practical framework kit derived from the source
 article. It converts the article's field report into reusable operating
@@ -31,6 +31,7 @@ without mixing the paths.
 | --- | --- |
 | [framework-handbook.md](framework-handbook.md) | Full explanation of the pattern, principles, roles, gates, artefacts, and operating rules. |
 | [bootstrap-user-journey.md](bootstrap-user-journey.md) | Canonical scripted, guided, and manual bootstrap paths for new and existing projects. |
+| [bootstrap-file-manifest.md](bootstrap-file-manifest.md) | Canonical file list that every bootstrap path must produce. |
 | [lifecycle-guide.md](lifecycle-guide.md) | End-to-end feature delivery lifecycle from high-level requirements through session close. |
 | [quality-cycle-readiness.md](quality-cycle-readiness.md) | Readiness check for the complete high-quality code development cycle, including skills and command discipline. |
 | [adoption-roadmap.md](adoption-roadmap.md) | Practical rollout plan for teams adopting the pattern gradually. |
@@ -54,6 +55,7 @@ without mixing the paths.
 | [templates/session-handout-template.md](templates/session-handout-template.md) | Preserve session state for the next working session. |
 | [templates/release-history-entry-template.md](templates/release-history-entry-template.md) | Append a durable project journal entry after significant work. |
 | [templates/domain-index-template.md](templates/domain-index-template.md) | Create an L1 documentation index for a domain folder. |
+| [templates/external-review-report-template.md](templates/external-review-report-template.md) | Report template for cross-agent review findings submitted through the Review Bridge. |
 
 ## Checklists
 
@@ -84,12 +86,19 @@ without mixing the paths.
 | [prompts/documentation-router-prompt.md](prompts/documentation-router-prompt.md) | Prompt for using the L0/L1/L2 documentation hierarchy efficiently. |
 | [prompts/architect-guidance.md](prompts/architect-guidance.md) | Guidance for architect answers, deferrals, spec approval, and phase closure approval. |
 
+## Guides
+
+| File | Purpose |
+| --- | --- |
+| [guides/_INDEX.md](guides/_INDEX.md) | Nested index for kit-level workflow guides. |
+| [guides/cross-agent-review-workflow.md](guides/cross-agent-review-workflow.md) | Structured cross-agent code review using the Review Bridge MCP server. |
+
 ## Examples
 
 | File | Purpose |
 | --- | --- |
 | [examples/worked-feature-example.md](examples/worked-feature-example.md) | A sample feature moving through requirements, questions, spec, plan, review, and session close. |
-| [walk-through/walkthrough.md](../../walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough with terminal screenshots. |
+| [walk-through/walkthrough.md](../../walk-through/walkthrough.md) | Synthetic macOS/Codex greenfield bootstrap walkthrough with terminal screenshots. Repository-level asset, not part of the portable kit. |
 
 ## Bootstrap Scripts
 

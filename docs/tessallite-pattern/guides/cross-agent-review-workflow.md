@@ -1,12 +1,18 @@
 # Cross-Agent Review Workflow
 
-A structured process for running automated code review cycles between two AI agents: one that implements (Claude Code) and one that reviews (Codex or any MCP-capable agent).
+Status: active
+Last meaningful update: 2026-05-10
+
+A structured process for running automated code review cycles between two AI
+agents: one that implements (Claude Code) and one that reviews (Codex or any
+MCP-capable agent).
 
 ## Prerequisites
 
 - Review Bridge MCP server installed and built (tools/review-bridge/)
 - Both agents configured to connect to the server
-- Both agents have the workflow instructions in their memory (CLAUDE.md and .codex/config.toml)
+- Both agents have the workflow instructions in their memory (CLAUDE.md and
+  .codex/config.toml)
 
 ## Process Flow
 
@@ -94,9 +100,11 @@ Step 4: Close
 Stop the loop when any of these are true:
 
 - No critical or high findings remain.
-- Severity counts are flat or increasing across rounds (the agents are going in circles).
+- Severity counts are flat or increasing across rounds (the agents are going in
+  circles).
 - The reviewer reports only low/info items.
-- You have run 3+ rounds on the same feature (deeper issues need human architectural review, not more agent passes).
+- You have run 3+ rounds on the same feature (deeper issues need human
+  architectural review, not more agent passes).
 
 ## Severity Scale
 
